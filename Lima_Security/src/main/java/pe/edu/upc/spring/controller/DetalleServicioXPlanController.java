@@ -78,7 +78,7 @@ public class DetalleServicioXPlanController {
 		}
 		
 	@RequestMapping("/modificar/{id}")
-	public String modificar(@PathVariable int id, Model model, RedirectAttributes objRedir) 
+	public String modificar1(@PathVariable int id, Model model, RedirectAttributes objRedir) 
 		throws ParseException 
 	{
 		Optional<DetalleServicioXPlan> objDetalleServicioXPlan = dService.listarId(id);
@@ -118,4 +118,6 @@ public class DetalleServicioXPlanController {
 		return "listdetalleServicioXPlanes";
 	}
 	
+			
 	
+}
