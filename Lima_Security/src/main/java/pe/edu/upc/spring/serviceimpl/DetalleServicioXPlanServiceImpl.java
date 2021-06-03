@@ -68,6 +68,14 @@ public class DetalleServicioXPlanServiceImpl implements IDetalleServicioXPlanSer
 		return dDetalleServicioXPlan.buscarServicio(nameServicio);
 	}
 	
+		
+	@Override
+	@Transactional(readOnly = true)
+	public Optional<DetalleServicioXPlan> listarId(int idDetalleServicioXPlan) {
+		return dDetalleServicioXPlan.findById(idDetalleServicioXPlan);
+	}
+	
+	
 	
 	
 	
