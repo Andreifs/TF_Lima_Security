@@ -16,32 +16,22 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.sun.el.parser.ParseException;
 
 import pe.edu.upc.spring.model.DetalleServicioXPlan;
-import pe.edu.upc.spring.model.Dueno;
-import pe.edu.upc.spring.model.Pet;
 import pe.edu.upc.spring.model.Servicio;
 import pe.edu.upc.spring.model.Plan;
-import pe.edu.upc.spring.model.Race;
 import pe.edu.upc.spring.service.IDetalleServicioXPlanService;
-import pe.edu.upc.spring.service.IDuenoService;
-import pe.edu.upc.spring.service.IPetService;
 import pe.edu.upc.spring.service.IServicioService;
 import pe.edu.upc.spring.service.IPlanService;
-import pe.edu.upc.spring.service.IRaceService;
 
 @Controller
 @RequestMapping("/detalleServicioXPlan")
 public class DetalleServicioXPlanController {
 	
 	@Autowired
-	private IDetalleServicioXPlanService dService;
-	
-	
+	private IDetalleServicioXPlanService dService;		
 	@Autowired
-	private IRaceService rService;
+	private IPlanService pService;
 	@Autowired
-	private IDuenoService dService;
-	@Autowired
-	private IPetService pService;
+	private IServicioService sService;
 	
 	@RequestMapping("/bienvenido")
 	public String irPaginaBienvenida() {
@@ -49,40 +39,40 @@ public class DetalleServicioXPlanController {
 	}
 	
 	@RequestMapping("/")
-	public String irPaginaListadoMascotas(Map<String,Object>model) {
-		model.put("listaMascotas", pService.listar());
-		return "listPets";
+	public String irPaginaListadoDetalleServicioXPlanes(Map<String,Object>model) {
+		model.put("listaDetalleServicioXPlanes", dService.listar());
+		return "listPetDetalleServicioXPlanes";
 	}
 	
 	@RequestMapping("/irRegistrar")
 	public String irPaginaRegistrar(Model model) {
 		
-		model.addAttribute("listaRazas", rService.listar());
-		model.addAttribute("listaDueno", dService.listar());
+		model.addAttribute("listaServicios", sService.listar());
+		model.addAttribute("listaPlanes", pService.listar());
 		
-		model.addAttribute("race", new Race());
-		model.addAttribute("dueno", new Dueno());
-		model.addAttribute("pet", new Pet());
+		model.addAttribute("detalleServicioXPlan", new DetalleServicioXPlan());
+		model.addAttribute("plan", new Plan());
+		model.addAttribute("servicio", new Servicio());
 		
-		return "pet";
+		return "detalleServicioXPlan";
 	}
 	
 	@RequestMapping("/registrar")
-	public String registrar (@ModelAttribute Pet objPet,BindingResult binRes,Model model)
+	public String registrar (@ModelAttribute DetalleServicioXPlan objDetalleServicioXPlan,BindingResult binRes,Model model)
 	throws ParseException
 		{
 			if(binRes.hasErrors()) {
-			model.addAttribute("listaRazas", rService.listar());
-			model.addAttribute("listaDueno", dService.listar());
-			return("pet");
+			model.addAttribute("listaServicios", sService.listar());
+			model.addAttribute("listaPlanes", pService.listar());
+			return("detalleServicioXPlan");
 			}
 			else {
-				boolean flag = pService.insertar(objPet);
+				boolean flag = dService.insertar(objDetalleServicioXPlan);
 				if (flag)
-					return "redirect:/pet/listar";
+					return "redirect:/detalleServicioXPlan/listar";
 				else {
 					model.addAttribute("mensaje", "Ocurrio un error");
-					return "redirect:/pet/irRegistrar";
+					return "redirect:/detalleServicioXPlan/irRegistrar";
 				}
 			}
 		}
@@ -91,18 +81,18 @@ public class DetalleServicioXPlanController {
 	public String modificar(@PathVariable int id, Model model, RedirectAttributes objRedir) 
 		throws ParseException 
 	{
-		Optional<Pet> objPet = pService.listarId(id);
-		if(objPet == null) {
+		Optional<DetalleServicioXPlan> objDetalleServicioXPlan = dService.listarId(id);
+		if(objDetalleServicioXPlan == null) {
 			objRedir.addFlashAttribute("mensaje", "Ocurrio un error");
 			return "redirect:/pet/listar";
 		}
 		else {
-			model.addAttribute("listaRazas", rService.listar());
-			model.addAttribute("listaDueno", dService.listar());
+			model.addAttribute("listaPlanes", pService.listar());
+			model.addAttribute("listaServicios", sService.listar());
 			
-			if(objPet.isPresent())
-				objPet.ifPresent(o -> model.addAttribute("pet" ,o ));
-			return "pet";
+			if(objDetalleServicioXPlan.isPresent())
+				objDetalleServicioXPlan.ifPresent(o -> model.addAttribute("detalleServicioXPlan" ,o ));
+			return "detalleServicioXPlan";
 		}
 	}		
 		
@@ -110,106 +100,22 @@ public class DetalleServicioXPlanController {
 	public String eliminar(Map<String, Object> model, @RequestParam(value="id") Integer id) {
 		try {
 			if (id != null && id>0) {
-				pService.eliminar(id);
-				model.put("listaMascotas", pService.listar());
+				dService.eliminar(id);
+				model.put("listaDetalleServicioXPlanes", dService.listar());
 			}
 		}
 		catch (Exception ex) {
 			System.out.println(ex.getMessage());
 			model.put("mensaje", "Ocurrio un error");
-			model.put("listaMascotas", pService.listar());
+			model.put("listaDetalleServicioXPlan", pService.listar());
 		}
-		return "listPets";
+		return "listdetalleServicioXPlanes";
 	}
 	
 	@RequestMapping("/listar")
 	public String listar(Map<String, Object> model) {
-		model.put("listaMascotas", pService.listar());
-		return "listPets";
+		model.put("listadetalleServicioXPlanes", dService.listar());
+		return "listdetalleServicioXPlanes";
 	}
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	@RequestMapping("/bienvenido")
-	public String irPaginaBienvenida() {
-		return "bienvenido";
-	}
-	
-	@RequestMapping("/")
-	public String irPaginaListadoServicios(Map<String, Object> model) {
-		model.put("listaServicios", sService.listar());
-		return "listServicio";
-	}
-	
-	@RequestMapping("/irRegistrar")
-	public String irPaginaRegistrar(Model model) {
-		model.addAttribute("servicio", new Servicio());
-		return "servicio";
-	}
-	
-	@RequestMapping("/registrar")
-	public String registrar(@ModelAttribute Servicio objServ, BindingResult binRes, Model model) throws ParseException {
-		if (binRes.hasErrors())
-			return "servicio";
-		else {
-			boolean flag = sService.insertar(objServ);
-			if (flag)
-				return "redirect:/servicio/listar";
-			else {
-				model.addAttribute("mensaje", "Ocurrio un error");
-				return "redirect:/servicio/irRegistrar";
-			}
-		}
-	}
-	
-	@RequestMapping("/modificar/{id}")
-	public String modificar(@PathVariable int id, Model model, RedirectAttributes objRedir) throws ParseException {
-		Optional<Servicio> objDisp = sService.listarId(id);
-		if(objDisp == null) {
-			objRedir.addFlashAttribute("mensaje", "Ocurrio un error");
-			return "redirect:/servicio/listar";
-		}
-		else {
-			model.addAttribute("servicio", objDisp);
-			return "servicio";
-		}
-	}
-	
-	@RequestMapping("/eliminar")
-	public String eliminar(Map<String, Object> model, @RequestParam(value="id") Integer id) {
-		try {
-			if (id != null && id>0) {
-				sService.eliminar(id);
-				model.put("listaServicios", sService.listar());
-			}
-		}
-		catch (Exception ex) {
-			System.out.println(ex.getMessage());
-			model.put("mensaje", "Ocurrio un error");
-			model.put("listaServicios", sService.listar());
-		}
-		return "listServicio";
-	}
-	
-	@RequestMapping("/listar")
-	public String listar(Map<String, Object> model) {
-		model.put("listaServicios", sService.listar());
-		return "listServicio";
-	}
-	
-	
-	
-	
-}
