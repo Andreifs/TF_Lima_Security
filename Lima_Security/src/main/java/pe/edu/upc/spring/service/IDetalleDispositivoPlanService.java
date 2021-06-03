@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import pe.edu.upc.spring.model.DetalleDispositivoPlan;
 
-public interface IPlanDispositivoPlanService {
+public interface IDetalleDispositivoPlanService {
 public boolean insertar(DetalleDispositivoPlan detalleDispositivoPlan);
 	public boolean modificar (DetalleDispositivoPlan detalleDispositivoPlan);
 	public void eliminar(int idDetalleDispositivoPlan);

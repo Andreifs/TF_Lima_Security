@@ -28,15 +28,13 @@ import pe.edu.upc.spring.service.IDetalleDispositivoPlanService;
 public class DetalleDispositivoPlanController {
 	
 	@Autowired
-	private IDetalleDispositivoPlanController dService;
+	private IDetalleDispositivoPlanService dpService;
 	
+	@Autowired
+	private IPlanService pService;
 	
 	@Autowired
-	private IRaceService rService;
-	@Autowired
-	private IDuenoService dService;
-	@Autowired
-	private IPetService pService;
+	private IDispositivoService dService;
 	
 	@RequestMapping("/bienvenido")
 	public String irPaginaBienvenida() {
