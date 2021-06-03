@@ -13,6 +13,6 @@ public interface IDetalleServicioXPlanService {
 	public List<DetalleServicioXPlan> listar();
 	public List<DetalleServicioXPlan> buscarPlan(String namePlan);
 	public List<DetalleServicioXPlan> buscarServicio(String nameServicio);
-	
+	public Optional<DetalleServicioXPlan> listarId(int idDetalleServicioXPlan);
 		
 }
