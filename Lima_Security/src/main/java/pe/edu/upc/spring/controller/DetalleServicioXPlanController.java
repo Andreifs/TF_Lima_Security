@@ -84,7 +84,7 @@ public class DetalleServicioXPlanController {
 		Optional<DetalleServicioXPlan> objDetalleServicioXPlan = dService.listarId(id);
 		if(objDetalleServicioXPlan == null) {
 			objRedir.addFlashAttribute("mensaje", "Ocurrio un error");
-			return "redirect:/pet/listar";
+			return "redirect:/detalleServicioXPlan/listar";
 		}
 		else {
 			model.addAttribute("listaPlanes", pService.listar());
@@ -107,7 +107,7 @@ public class DetalleServicioXPlanController {
 		catch (Exception ex) {
 			System.out.println(ex.getMessage());
 			model.put("mensaje", "Ocurrio un error");
-			model.put("listaDetalleServicioXPlan", pService.listar());
+			model.put("listaDetalleServicioXPlan", dService.listar());
 		}
 		return "listdetalleServicioXPlanes";
 	}

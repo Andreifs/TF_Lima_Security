@@ -14,7 +14,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="DetalleDispositivoPlan")
-public class DetalleDispositivoXPlan implements Serializable {
+public class DetalleDispositivoPlan implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 

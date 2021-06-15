@@ -1,7 +1,7 @@
 package pe.edu.upc.spring.serviceimpl;
 
 import java.util.List;
-
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
@@ -64,9 +64,17 @@ public class DetalleDispositivoPlanServiceImpl implements IDetalleDispositivoPla
 
 	@Override
 	@Transactional
-	public List<DetalleDispositivoPlan> buscarDispositivo(String nameDispositivo) {
-		return dDetalleDispositivoPlan.buscarDispositivo(nameDispositivo);
+	public List<DetalleDispositivoPlan> buscarDispositivo(String modeloDispo) {
+		return dDetalleDispositivoPlan.buscarDispositivo(modeloDispo);
 	}
+
+	@Override
+	@Transactional(readOnly=true)
+	public Optional<DetalleDispositivoPlan> listarId(int DetalleDispositivoPlan) {
+		return dDetalleDispositivoPlan.findById(DetalleDispositivoPlan);
+	}
+	
+}
 	
 	
 	
