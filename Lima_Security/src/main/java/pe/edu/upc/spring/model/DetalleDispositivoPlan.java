@@ -13,23 +13,68 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="DetalleDispositivoPlan")
+@Table(name="DetalleDipositivoPlan")
 public class DetalleDispositivoPlan implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@ManyToOne
-	@JoinColumn(name="idDispositivo",nullable=false)
-	private Dispositivo dispositivo;
-
+	private int idDetalleDispositivoPlan;
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@ManyToOne
 	@JoinColumn(name="idPlan",nullable=false)
 	private Plan plan;
 
+	@ManyToOne
+	@JoinColumn(name="idDispositivo",nullable=false)
+	private Dispositivo dispositivo;
+
+
+	public DetalleDispositivoPlan() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
+	public DetalleDispositivoPlan(int idDetalleDispositivoPlan, Plan plan, Dispositivo dispositivo) {
+		super();
+		this.idDetalleDispositivoPlan = idDetalleDispositivoPlan;
+		this.plan = plan;
+		this.dispositivo = dispositivo;
+	}
+
+
+	public int getIdDetalleDispositivoPlan() {
+		return idDetalleDispositivoPlan;
+	}
+
+
+	public void setIdDetalleDispositivoPlan(int idDetalleDispositivoPlan) {
+		this.idDetalleDispositivoPlan = idDetalleDispositivoPlan;
+	}
+
+
+	public Plan getPlan() {
+		return plan;
+	}
+
+
+	public void setPlan(Plan plan) {
+		this.plan = plan;
+	}
+
+
+	public Dispositivo getDispositivo() {
+		return dispositivo;
+	}
+
+
+	public void setDispositivo(Dispositivo dispositivo) {
+		this.dispositivo = dispositivo;
+	}
+
+
+	
 	
 }

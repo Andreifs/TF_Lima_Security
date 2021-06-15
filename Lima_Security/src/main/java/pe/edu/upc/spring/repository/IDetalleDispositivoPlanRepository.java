@@ -14,10 +14,10 @@ import pe.edu.upc.spring.model.DetalleDispositivoPlan;
 public interface IDetalleDispositivoPlanRepository extends JpaRepository<DetalleDispositivoPlan, Integer>{
 	
 
-	@Query("from DetalleDispositivoPlan dp where dp.modeloDisp like %:modeloDisp%")
-	List<DetalleDispositivoPlan> buscarDispositivo(@Param("modeloDisp") String nombreServicio);
+	@Query("from DetalleDispositivoPlan dp where dp.dispositivo.modeloDisp like %:modeloDisp%")
+	List<DetalleDispositivoPlan> buscarDispositivo(@Param("modeloDisp") String modeloDisp);
 
-	@Query("from DetalleDispositivoPlan dp where dp.nombrePlan like %:nombreDispositivo%")
+	@Query("from DetalleDispositivoPlan dp where dp.plan.nombrePlan like %:nombrePlan%")
 	List<DetalleDispositivoPlan> buscaPlan(@Param("nombrePlan") String nombrePlan);
 
 }

@@ -13,6 +13,6 @@ public interface IPagoClienteService {
 	public Optional<PagoCliente> listarId(int idPagoCliente);
 	public List<PagoCliente> listar();
 	
-	public List<PagoCliente> buscarUsuario(String nameRace);
-	public List<PagoCliente> buscarPago(String nameDueno);
+	public List<PagoCliente> buscarUsuario(String nombreUsuario);
+	public List<PagoCliente> buscarPago(int idPago);
 }

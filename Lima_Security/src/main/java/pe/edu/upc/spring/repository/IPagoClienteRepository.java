@@ -16,11 +16,11 @@ public interface IPagoClienteRepository extends JpaRepository<PagoCliente, Integ
 	
 	
 
-	@Query("from PagoCliente p where p.pago.namePago like %:namePago%")
-	List<PagoCliente> buscarPago(@Param("namePago") String namePago);
+	@Query("from PagoCliente p where p.pago.idPago like %:idPago%")
+	List<PagoCliente> buscarPago(@Param("idPago") int idPago);
 
-	@Query("from PagoCliente p where p.usuario.nameUsuario like %:nameUsuario%")
-	List<PagoCliente> buscarUsuario(@Param("nameUsuario") String nameUsuario);
+	@Query("from PagoCliente p where p.usuario.nombreUsuario like %:nombreUsuario%")
+	List<PagoCliente> buscarUsuario(@Param("nombreUsuario") String nameUsuario);
 	
 	
 }

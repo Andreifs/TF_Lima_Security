@@ -70,13 +70,13 @@ public class PagoClienteServiceImpl implements IPagoClienteService {
 	
 	@Override
 	@Transactional
-	public List<PagoCliente> buscarPago(String namePago) {
-		return dPagoCliente.buscarPago(namePago);
+	public List<PagoCliente> buscarPago(int idPago) {
+		return dPagoCliente.buscarPago(idPago);
 	}
 	
 	@Override
 	@Transactional
-	public List<PagoCliente> buscarUsuario(String nameUsuario) {
-		return dPagoCliente.buscarUsuario(nameUsuario);
+	public List<PagoCliente> buscarUsuario(String nombreUsuario) {
+		return dPagoCliente.buscarUsuario(nombreUsuario);
 	}
 }

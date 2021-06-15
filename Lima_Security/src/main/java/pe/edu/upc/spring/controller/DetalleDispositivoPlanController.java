@@ -23,7 +23,7 @@ import pe.edu.upc.spring.service.IDispositivoService;
 import pe.edu.upc.spring.service.IPlanService;
 
 @Controller
-@RequestMapping("/detalleServicioXPlan")
+@RequestMapping("/detalleDispositivoPlan")
 public class DetalleDispositivoPlanController {
 	
 	@Autowired

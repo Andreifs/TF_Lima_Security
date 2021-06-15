@@ -10,7 +10,7 @@ public interface IDetalleDispositivoPlanService {
 	public boolean modificar (DetalleDispositivoPlan detalleDispositivoPlan);
 	public void eliminar(int idDetalleDispositivoPlan);
 	public List<DetalleDispositivoPlan> listar();
-	public List<DetalleDispositivoPlan> buscarPlan(String namePlan);
+	public List<DetalleDispositivoPlan> buscarPlan(String nombrePlan);
 	public List<DetalleDispositivoPlan> buscarDispositivo(String modeloDisp);
 	public Optional<DetalleDispositivoPlan> listarId(int idDetalleDispositivoPlan);
 

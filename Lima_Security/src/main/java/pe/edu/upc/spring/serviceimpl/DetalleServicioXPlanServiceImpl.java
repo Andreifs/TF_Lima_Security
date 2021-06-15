@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 
@@ -11,7 +12,7 @@ import pe.edu.upc.spring.service.IDetalleServicioXPlanService;
 import pe.edu.upc.spring.model.DetalleServicioXPlan;
 import pe.edu.upc.spring.repository.IDetalleServicioXPlanRepository;
 
-
+@Service
 public class DetalleServicioXPlanServiceImpl implements IDetalleServicioXPlanService {
 
 	
@@ -45,8 +46,8 @@ public class DetalleServicioXPlanServiceImpl implements IDetalleServicioXPlanSer
 
 	@Override
 	@Transactional
-	public void eliminar(int idDetalleServicioXPlan) {
-		dDetalleServicioXPlan.deleteById(idDetalleServicioXPlan);
+	public void eliminar(int idDetalleServicioPlan) {
+		dDetalleServicioXPlan.deleteById(idDetalleServicioPlan);
 		
 	}
 
@@ -58,21 +59,21 @@ public class DetalleServicioXPlanServiceImpl implements IDetalleServicioXPlanSer
 
 	@Override
 	@Transactional
-	public List<DetalleServicioXPlan> buscarPlan(String namePlan) {
-		return dDetalleServicioXPlan.buscaPlan(namePlan);
+	public List<DetalleServicioXPlan> buscarPlan(String nombrePlan) {
+		return dDetalleServicioXPlan.buscaPlan(nombrePlan);
 	}
 
 	@Override
 	@Transactional
-	public List<DetalleServicioXPlan> buscarServicio(String nameServicio) {
-		return dDetalleServicioXPlan.buscarServicio(nameServicio);
+	public List<DetalleServicioXPlan> buscarServicio(String nombreServicio) {
+		return dDetalleServicioXPlan.buscarServicio(nombreServicio);
 	}
 	
 		
 	@Override
 	@Transactional(readOnly = true)
-	public Optional<DetalleServicioXPlan> listarId(int idDetalleServicioXPlan) {
-		return dDetalleServicioXPlan.findById(idDetalleServicioXPlan);
+	public Optional<DetalleServicioXPlan> listarId(int idDetalleServicioPlan) {
+		return dDetalleServicioXPlan.findById(idDetalleServicioPlan);
 	}
 	
 	

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 
@@ -11,7 +12,7 @@ import pe.edu.upc.spring.service.IDetalleDispositivoPlanService;
 import pe.edu.upc.spring.model.DetalleDispositivoPlan;
 import pe.edu.upc.spring.repository.IDetalleDispositivoPlanRepository;
 
-
+@Service
 public class DetalleDispositivoPlanServiceImpl implements IDetalleDispositivoPlanService {
 
 	
@@ -58,14 +59,14 @@ public class DetalleDispositivoPlanServiceImpl implements IDetalleDispositivoPla
 
 	@Override
 	@Transactional
-	public List<DetalleDispositivoPlan> buscarPlan(String namePlan) {
-		return dDetalleDispositivoPlan.buscaPlan(namePlan);
+	public List<DetalleDispositivoPlan> buscarPlan(String nombrePlan) {
+		return dDetalleDispositivoPlan.buscaPlan(nombrePlan);
 	}
 
 	@Override
 	@Transactional
-	public List<DetalleDispositivoPlan> buscarDispositivo(String modeloDispo) {
-		return dDetalleDispositivoPlan.buscarDispositivo(modeloDispo);
+	public List<DetalleDispositivoPlan> buscarDispositivo(String modeloDisp) {
+		return dDetalleDispositivoPlan.buscarDispositivo(modeloDisp);
 	}
 
 	@Override

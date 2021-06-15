@@ -9,10 +9,10 @@ public interface IDetalleServicioXPlanService {
 
 	public boolean insertar(DetalleServicioXPlan detalleServicioXPlan);
 	public boolean modificar (DetalleServicioXPlan detalleServicioXPlan);
-	public void eliminar(int idDetalleServicioXPlan);
+	public void eliminar(int idDetalleServicioPlan);
 	public List<DetalleServicioXPlan> listar();
-	public List<DetalleServicioXPlan> buscarPlan(String namePlan);
-	public List<DetalleServicioXPlan> buscarServicio(String nameServicio);
-	public Optional<DetalleServicioXPlan> listarId(int idDetalleServicioXPlan);
+	public List<DetalleServicioXPlan> buscarPlan(String nombrePlan);
+	public List<DetalleServicioXPlan> buscarServicio(String nombreServicio);
+	public Optional<DetalleServicioXPlan> listarId(int idDetalleServicioPlan);
 		
 }

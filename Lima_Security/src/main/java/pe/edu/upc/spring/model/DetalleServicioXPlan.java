@@ -10,6 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+
+
 @Entity
 @Table(name="DetalleServicioPlan")
 public class DetalleServicioXPlan implements Serializable {
@@ -18,16 +20,63 @@ public class DetalleServicioXPlan implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int idDetalleServicioPlan;
+	
+
+
+	@ManyToOne
+	@JoinColumn(name="idPlan",nullable=false)
+	private Plan plan;
+
 	@ManyToOne
 	@JoinColumn(name="idServicio",nullable=false)
 	private Servicio servicio;
 
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@ManyToOne
-	@JoinColumn(name="idPlan",nullable=false)
-	private Plan plan;
+
+	public DetalleServicioXPlan() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
+	public DetalleServicioXPlan(int idDetalleServicioPlan, Plan plan, Servicio servicio) {
+		super();
+		this.idDetalleServicioPlan = idDetalleServicioPlan;
+		this.plan = plan;
+		this.servicio = servicio;
+	}
+
+
+	public int getIdDetalleServicioPlan() {
+		return idDetalleServicioPlan;
+	}
+
+
+	public void setIdDetalleServicioPlan(int idDetalleServicioPlan) {
+		this.idDetalleServicioPlan = idDetalleServicioPlan;
+	}
+
+
+	public Plan getPlan() {
+		return plan;
+	}
+
+
+	public void setPlan(Plan plan) {
+		this.plan = plan;
+	}
+
+
+	public Servicio getServicio() {
+		return servicio;
+	}
+
+
+	public void setServicio(Servicio servicio) {
+		this.servicio = servicio;
+	}
+
+
 
 	
 }
