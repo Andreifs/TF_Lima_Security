@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	
+	<head>
+		<meta charset="UTF-8"></meta>
+		<title>Lima Security Life</title>
+		
+		
+		<script type="text/javascript"
+				src="ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.js">
+		</script>
+		
+		<link
+			href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+			rel="stylesheet" id="bootstrap-css">
+		</link>
+		
+		<script
+			src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js">
+		</script>
+		
+		<script src="code.jquery.com/jquery-3.2.1.min.js"></script>
+		<link rel="stylesheet" th:href="@{/css/styles.css}" />
+		
+	</head>
+	
+	<body>
+		<div th:replace="fragments/header :: header"></div>
+		
+		<div class="container">
+			<div class="col"> 
+				<img th:src="@{/imagenes/casa.jpg}" width="250" height="200" alt="casa" align="middle"></img>
+				<p>Casa</p>
+				
+			</div>
+			<div class="col"><p>Casa</p></div>
+			<div class="col"><p>Negocio Pequeño</p></div>
+			<div class="col"><p>Negocio Grande</p></div>
+			<div class="col"><p>Departamento</p></div>
+			
+		</div>
+		
+		<div th:replace="fragments/footer :: footer"></div>
+	</body>
+	
+</html>

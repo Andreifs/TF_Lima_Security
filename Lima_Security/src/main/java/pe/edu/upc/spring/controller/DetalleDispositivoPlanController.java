@@ -71,7 +71,7 @@ public class DetalleDispositivoPlanController {
 	public String modificar(@PathVariable int id, Model model, RedirectAttributes objRedir) 
 		throws ParseException 
 	{
-		Optional<Pet> objPet = pService.listarId(id);
+		Optional<DetalleDispositivoPlan> objDP = dpService.listarId(id);
 		if(objPet == null) {
 			objRedir.addFlashAttribute("mensaje", "Ocurrio un error");
 			return "redirect:/pet/listar";
