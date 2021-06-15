@@ -32,11 +32,12 @@ import pe.edu.upc.spring.service.IRaceService;
 
 
 @Controller
-@RequestMapping("/detalleDispositivoXPlan")
-public class DetalleDispositivoXPlanController {
+@RequestMapping("/detalleDispositivoPlan")
+public class DetalleDispositivoPlanController {
 	
 	@Autowired
-	private IDetalleDispositivoXPlanService dService;
+<<<<<<< HEAD
+	private IDetalleDispositivoPlanService dService;
 	
 	
 	@Autowired
@@ -45,6 +46,15 @@ public class DetalleDispositivoXPlanController {
 	private IDuenoDispositivo dService;
 	@Autowired
 	private IPetDispositivo pService;
+=======
+	private IDetalleDispositivoPlanService dpService;
+	
+	@Autowired
+	private IPlanService pService;
+	
+	@Autowired
+	private IDispositivoService dService;
+>>>>>>> f46e1046898ce89e162e9e316df67fe997bc3b5e
 	
 	@RequestMapping("/bienvenido")
 	public String irPaginaBienvenida() {
