@@ -9,12 +9,12 @@ import org.springframework.stereotype.Repository;
 
 import pe.edu.upc.spring.model.DetalleDispotisivoPlan;
 
-public interface IPlanDispositivo {
-	public boolean insertar(Plan plan);
-	public boolean modificar(Plan plan);
-	public void eliminar(int idPlan);
-	public Optional<Plan> listarId(int idPlan);
-	List<Plan> listar();
-	List<Plan> buscarNombre(String nombrePlan);
-
+@Repository
+public interface IDetalleDispositivoPlanRepository extends JpaRepository<DetalleDispositivoPlan, Integer>{
+	
+	@Query("from DetalleDispositivoXPlan d where d.nombreDispisitvo like %:modeloDisp%")
+	List<DetalleDispositivoXPlan> buscarModelo(@Param("modeloDisp") String modeloDisp);
+	
+	
+	
 }
