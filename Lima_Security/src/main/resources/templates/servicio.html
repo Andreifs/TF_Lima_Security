@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	
+	<head>
+		<meta charset="UTF-8"></meta>
+		<title>Servicios</title>
+		
+		<script type="text/javascript"
+				src="ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.js">
+		</script>
+		
+		<link
+			href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+			rel="stylesheet" id="bootstrap-css">
+		</link>
+		
+		<script
+			src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js">
+		</script>
+		
+		<script src="code.jquery.com/jquery-3.2.1.min.js"></script>
+	</head>
+	
+	<body>
+		<div th:replace="fragments/header :: header"></div>
+		
+		<div class="container">
+		
+		
+		<form th:action="@{/servicio/registrar}" method="post" th:object="${servicio}">
+				<div class="form-group">
+					<label for="idServicio">ID:</label>
+					<input type="text" class="form-control" th:field="*{idServicio}"></input>
+					
+					<div class="form-group">
+						<label for="nombreservicio">nombreServicio:</label>
+						<input type="text" class="form-control" th:field="*{nombreServicio}" id="nombreservicio"></input>
+						
+						<div class="alert alert-danger" th:if="${#fields.hasErrors('nombreServicio')}" 
+							th:errors="*{nombreServicio">						
+						</div>
+						
+						<div class="form-group">
+						<label for="descripcionserv">descripciondeServicio:</label>
+						<input type="text" class="form-control" th:field="*{descripcionServ}" id="descripcionserv"></input>
+						
+						<div class="alert alert-danger" th:if="${#fields.hasErrors('descripcionServ')}" 
+							th:errors="*{descripcionServ">						
+						</div>
+						
+						
+						
+					</div>
+				
+				</div>
+				
+				<button type="submit" class="btn btn-primary">Aceptar</button>
+				<a href="/dueno/listar" class="btn btn-danger">Cancelar</a>
+				
+			</form>
+		</div>
+		
+		<div th:replace="fragments/footer :: footer"></div>
+	</body>
+	
+</html>

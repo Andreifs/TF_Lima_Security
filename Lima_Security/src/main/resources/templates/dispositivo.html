@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	
+	<head>
+		<meta charset="UTF-8"></meta>
+		<title>Dispositivos</title>
+		
+		<script type="text/javascript"
+				src="ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.js">
+		</script>
+		
+		<link
+			href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+			rel="stylesheet" id="bootstrap-css">
+		</link>
+		
+		<script
+			src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js">
+		</script>
+		
+		<script src="code.jquery.com/jquery-3.2.1.min.js"></script>
+	</head>
+	
+	<body>
+		<div th:replace="fragments/header :: header"></div>
+		
+		<div class="container">
+		
+		
+		
+		
+			<form th:action="@{/dispositivo/registrar}" method="post" th:object="${dispositivo}">
+				<div class="form-group">
+					<label for="idDispositivo">ID:</label>
+					<input type="text" class="form-control" th:field="*{idDispositivo}"></input>
+					
+					<div class="form-group">
+						<label for="tipodispositivo">Tipo de Dispositivo:</label>
+						<input type="text" class="form-control" th:field="*{tipoDispositivo}" id="tipodispositivo"></input>
+						
+						<div class="alert alert-danger" th:if="${#fields.hasErrors('tipoDispositivo')}" 
+							th:errors="*{tipoDispositivo">						
+						</div>
+						
+						<div class="form-group">
+						<label for="modelodisp">modelo de Dispositivo:</label>
+						<input type="text" class="form-control" th:field="*{modeloDisp}" id="modelodisp"></input>
+						
+						<div class="alert alert-danger" th:if="${#fields.hasErrors('modeloDisp')}" 
+							th:errors="*{modeloDisp">						
+						</div>
+						
+						
+						<div class="form-group">
+						<label for="descripciondisp">descripcion de dispositivo:</label>
+						<input type="text" class="form-control" th:field="*{descripcionDisp}" id="descripciondisp"></input>
+						
+						<div class="alert alert-danger" th:if="${#fields.hasErrors('descripcionDisp')}" 
+							th:errors="*{descripcionDisp">						
+						</div>
+						
+						<div class="form-group">
+						<label for="preciodisp">preciodeDispositivo:</label>
+						<input type="text" class="form-control" th:field="*{precioDisp}" id="preciodisp"></input>
+						
+						<div class="alert alert-danger" th:if="${#fields.hasErrors('precioDisp')}" 
+							th:errors="*{precioDisp">						
+						</div>
+						
+						
+					</div>
+				
+				</div>
+				
+				<button type="submit" class="btn btn-primary">Aceptar</button>
+				<a href="/dueno/listar" class="btn btn-danger">Cancelar</a>
+				
+			</form>
+		</div>
+		
+		<div th:replace="fragments/footer :: footer"></div>
+	</body>
+	
+</html>
