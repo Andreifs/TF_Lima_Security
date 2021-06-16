@@ -41,7 +41,7 @@ public class DetalleServicioXPlanController {
 	@RequestMapping("/")
 	public String irPaginaListadoDetalleServicioXPlanes(Map<String,Object>model) {
 		model.put("listaDetalleServicioXPlanes", dService.listar());
-		return "listaDetalleServicioXPlanes";
+		return "listDetalleServicio";
 	}
 	
 	@RequestMapping("/irRegistrar")
@@ -107,15 +107,15 @@ public class DetalleServicioXPlanController {
 		catch (Exception ex) {
 			System.out.println(ex.getMessage());
 			model.put("mensaje", "Ocurrio un error");
-			model.put("listaDetalleServicioXPlan", dService.listar());
+			model.put("listaDetalleServicioXPlanes", dService.listar());
 		}
-		return "listDetalleServicioXPlanes";
+		return "listDetalleServicio";
 	}
 	
 	@RequestMapping("/listar")
 	public String listar(Map<String, Object> model) {
-		model.put("listadetalleServicioXPlanes", dService.listar());
-		return "listDetalleServicioXPlanes";
+		model.put("listaDetalleServicioXPlanes", dService.listar());
+		return "listDetalleServicio";
 	}
 	
 			

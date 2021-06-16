@@ -28,13 +28,13 @@
 			<form id="myform">
 				<div class="row clearfix">
 					<div class="col-md-12 column">
-						<a 	style="border-bottom-color: black" th:href="@{/detalleservicio/irRegistrar}" id="add-row"
+						<a 	style="border-bottom-color: black" th:href="@{/detalleServicioXPlan/irRegistrar}" id="add-row"
 						   	type = "button"
 						   	class= "btn btn-primary btn-md left-block">
 							<span class="glyphicon glyphicon-plus"></span> Detalle Servicio
 						</a>
 						
-						<a 	style="border-bottom-color: black" th:href="@{/detalleservicio/irBuscar}" id="add-row"
+						<a 	style="border-bottom-color: black" th:href="@{/detalleServicioXPlan/irBuscar}" id="add-row"
 						   	type = "button"
 						   	class= "btn btn-primary btn-md left-block">
 							<span class="glyphicon glyphicon-search"></span> Buscar
@@ -51,12 +51,12 @@
 							</thead>
 							
 							<tbody>
-								<tr th:each="dets: ${listaDetalleServicioXPlan}">
-									<td th:text="${dets.idDetalleServicioPlan}"></td>
-									<td th:text="${dets.plan.nombrePLan}"></td>
-									<td th:text="${dets.servicio.nombreServicio}"></td>
-									<td class="text-center"><a class="glyphicon glyphicon-trash" th:href="@{/detalleservicio/eliminar?id=}+${dets.idDetalleServicioPlan}"> Eliminar</a></td>
-									<td class="text-center"><a class="glyphicon glyphicon-pencil" th:href="@{'/detalleservicio/modificar/' + ${dets.idDetalleServicioPlan}}"> Modificar</a></td>
+								<tr th:each="dsp: ${listaDetalleServicioXPlanes}">
+									<td th:text="${dsp.idDetalleServicioPlan}"></td>
+									<td th:text="${dsp.plan.nombrePlan}"></td>
+									<td th:text="${dsp.servicio.nombreServicio}"></td>
+									<td class="text-center"><a class="glyphicon glyphicon-trash" th:href="@{/detalleServicioXPlan/eliminar?id=}+${dsp.idDetalleServicioPlan}"> Eliminar</a></td>
+									<td class="text-center"><a class="glyphicon glyphicon-pencil" th:href="@{'/detalleServicioXPlan/modificar/' + ${dsp.idDetalleServicioPlan}}"> Modificar</a></td>
 								</tr>
 							</tbody>
 						</table>

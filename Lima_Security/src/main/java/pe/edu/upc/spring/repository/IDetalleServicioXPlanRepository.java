@@ -12,9 +12,9 @@ import pe.edu.upc.spring.model.DetalleServicioXPlan;
 @Repository
 public interface IDetalleServicioXPlanRepository extends JpaRepository<DetalleServicioXPlan, Integer>{
 	
-	@Query("from DetalleServicioXPlan d where d.servicio.nombreServicio like %:nombreServicio%")
+	@Query("from DetalleServicioXPlan ds where ds.servicio.nombreServicio like %:nombreServicio%")
 	List<DetalleServicioXPlan> buscarServicio(@Param("nombreServicio") String nombreServicio);
 
-	@Query("from DetalleServicioXPlan d where d.plan.nombrePlan like %:nombrePlan%")
+	@Query("from DetalleServicioXPlan ds where ds.plan.nombrePlan like %:nombrePlan%")
 	List<DetalleServicioXPlan> buscaPlan(@Param("nombrePlan") String nombrePlan);
 }
