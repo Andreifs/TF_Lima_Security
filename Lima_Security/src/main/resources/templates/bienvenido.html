@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 	
-	<head>
+<head>
 		<meta charset="UTF-8"></meta>
-		<title>Lima Security Life</title>
+		<title>Tienda de Mascotas</title>
 		
+	
 		
 		<script type="text/javascript"
 				src="ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.js">
@@ -15,30 +16,66 @@
 			rel="stylesheet" id="bootstrap-css">
 		</link>
 		
+		<link rel="stylesheet" th:href ="@{/css/estilos.css}"/>
 		<script
 			src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js">
 		</script>
 		
 		<script src="code.jquery.com/jquery-3.2.1.min.js"></script>
-		<link rel="stylesheet" th:href="@{/css/styles.css}" />
+		
 		
 	</head>
 	
-	<body>
+	<body style="background-color: silver;" >
 		<div th:replace="fragments/header :: header"></div>
 		
-		<div class="container">
-			<div class="col"> 
-				<img th:src="@{/imagenes/casa.jpg}" width="250" height="200" alt="casa" align="middle"></img>
-				<p>Casa</p>
-				
+		
+			<div class="jumbotron"  >
+  				<div class="container text-right">
+    				<h1>Lima Security Life</h1>  
+    				
+    				<br>    
+    				<br>
+    				<br>
+    				<p>Nada más importante	que tu seguridad y la de tu familia</p>
+    				<br>
+    				<br>
+    				<button type="button" class="btn btn-info btn-lg">Nuestros Servicios</button>
+  				</div>
+  				
+  				
 			</div>
-			<div class="col"><p>Casa</p></div>
-			<div class="col"><p>Negocio Pequeño</p></div>
-			<div class="col"><p>Negocio Grande</p></div>
-			<div class="col"><p>Departamento</p></div>
 			
-		</div>
+			<div class="container-qs text-center">
+  				<h3 class="margin">¿Quienes Somos?</h3>
+  				<p>Somos una empresa de seguridad</p>
+			</div>
+			
+			
+		<div class="container-fluid bg-3 text-center" >    
+  			<h3>¿Que Ofrecemos?</h3><br>
+  			<div class="row" style="padding-left: 200px; background-color: #DADADA">
+    			<div class="col1 col-sm-5">
+    				<h3>Dispositivos Tecnologicos</h3>
+      				<img th:src="@{/imagenes/camera1.jpg}" class="img-responsive" style="width:100%" alt="camara1">
+      				<p>Productos de Calidad con nuestros Sistemas de Seguridad mas importantes a nivel tecnologico.</p>
+      				<button type="button" class="btn btn-info btn-lg">Ver más</button>
+      				<br>
+      			</div>
+      		
+    			<div class="col-sm-5" >
+    				<h3>Los Mejores Planes</h3>
+      				<img th:src="@{/imagenes/sujeto1.jpg}" class="img-responsive" style="width:100%" alt="sujeto1">
+       				<p>Contamos con los mejores Planes que se adecuan a todas tus necesidades.</p>
+       				<button type="button" class="btn btn-info btn-lg">Ver más</button>
+       				<br>
+    			</div>
+    		</div>
+    			
+ 
+  </div>
+</div><br>
+
 		
 		<div th:replace="fragments/footer :: footer"></div>
 	</body>
