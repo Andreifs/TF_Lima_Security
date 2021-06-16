@@ -28,13 +28,13 @@
 			<form id="myform">
 				<div class="row clearfix">
 					<div class="col-md-12 column">
-						<a 	style="border-bottom-color: black" th:href="@{/dueno/irRegistrar}" id="add-row"
+						<a 	style="border-bottom-color: black" th:href="@{/dispositivo/irRegistrar}" id="add-row"
 						   	type = "button"
 						   	class= "btn btn-primary btn-md left-block">
 							<span class="glyphicon glyphicon-plus"></span> Dispositivos
 						</a>
 						
-						<a 	style="border-bottom-color: black" th:href="@{/dueno/irBuscar}" id="add-row"
+						<a 	style="border-bottom-color: black" th:href="@{/dispositivo/irBuscar}" id="add-row"
 						   	type = "button"
 						   	class= "btn btn-primary btn-md left-block">
 							<span class="glyphicon glyphicon-search"></span> Buscar
@@ -52,7 +52,7 @@
 							</thead>
 							
 							<tbody>
-								<tr th:each="due: ${listaDispositivos}">
+								<tr th:each="dis	: ${listaDispositivos}">
 									<td th:text="${dis.idDispositivo}"></td>
 									<td th:text="${dis.tipoDispositivo}"></td>
 									<td th:text="${dis.modeloDisp}"></td>

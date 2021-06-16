@@ -27,29 +27,25 @@
 		<div class="container">
 		
 		
-		<form th:action="@{/DetalleDispositivo/registrar}" method="post" th:object="${DetalleDispositivo}">
+		<form th:action="@{/detalleDispositivoPlan/registrar}" method="post" th:object="${detalleDispositivoPlan}">
 				<div class="form-group">
 					<label for="idDetalleDispositivoPlan">ID:</label>
 					<input type="text" class="form-control" th:field="*{idDetalleDispositivoPlan}"></input>
 					
 				<div class="form-group">
 					
-					
-					
-			
-						
 					<label for="plan" class= "col-sm-2 col-form-label">Plan:</label>
 					<select class="form-control" th:field="*{plan.idPlan}"> 
-						<option th:each= "r:${listPlan}" th:value="${r.idPlan}"
-							 	th:text="${r.nombrePlan}"
-							 	th:selected="(${r.idPlan} == *{plan.idPlan})">
+						<option th:each= "p:${listaPlanes}" th:value="${p.idPlan}"
+							 	th:text="${p.nombrePlan}"
+							 	th:selected="(${p.idPlan} == *{plan.idPlan})">
 						</option>
 					</select>	
 					
 					<label for="dispositivo" class= "col-sm-2 col-form-label">Dispositivo:</label>
-					<select class="form-control" th:field="*{dueno.idDispositivo}"> 
-						<option th:each= "r:${listDispositivo}" th:value="${d.idDispositivo}"
-							 	th:text="${d.tipoDispositivo}"
+					<select class="form-control" th:field="*{dispositivo.idDispositivo}"> 
+						<option th:each= "d:${listaDispositivos}" th:value="${d.idDispositivo}"
+							 	th:text="${d.modeloDisp}"
 							 	th:selected="(${d.idDispositivo} == *{dispositivo.idDispositivo})">
 						</option>
 					</select>	
@@ -59,7 +55,7 @@
 			</div>
 				
 				<button type="submit" class="btn btn-primary">Aceptar</button>
-				<a href="/pet/listar" class="btn btn-danger">Cancelar</a>
+				<a href="/detalleDispositivoPlan/listar" class="btn btn-danger">Cancelar</a>
 				
 			</form>
 		</div>

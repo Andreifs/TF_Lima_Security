@@ -51,10 +51,10 @@
 							</thead>
 							
 							<tbody>
-								<tr th:each="due: ${listaDetalleServicios}">
+								<tr th:each="dets: ${listaDetalleServicioXPlan}">
 									<td th:text="${dets.idDetalleServicioPlan}"></td>
-									<td th:text="${dets.Plan}"></td>
-									<td th:text="${dets.Servicio}"></td>
+									<td th:text="${dets.plan.nombrePLan}"></td>
+									<td th:text="${dets.servicio.nombreServicio}"></td>
 									<td class="text-center"><a class="glyphicon glyphicon-trash" th:href="@{/detalleservicio/eliminar?id=}+${dets.idDetalleServicioPlan}"> Eliminar</a></td>
 									<td class="text-center"><a class="glyphicon glyphicon-pencil" th:href="@{'/detalleservicio/modificar/' + ${dets.idDetalleServicioPlan}}"> Modificar</a></td>
 								</tr>

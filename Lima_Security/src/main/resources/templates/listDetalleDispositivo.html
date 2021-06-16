@@ -28,13 +28,13 @@
 			<form id="myform">
 				<div class="row clearfix">
 					<div class="col-md-12 column">
-						<a 	style="border-bottom-color: black" th:href="@{/detalledispositivo/irRegistrar}" id="add-row"
+						<a 	style="border-bottom-color: black" th:href="@{/detalleDispositivoPlan/irRegistrar}" id="add-row"
 						   	type = "button"
 						   	class= "btn btn-primary btn-md left-block">
 							<span class="glyphicon glyphicon-plus"></span>Detalle Dispositivo
 						</a>
 						
-						<a 	style="border-bottom-color: black" th:href="@{/detalledispositivo/irBuscar}" id="add-row"
+						<a 	style="border-bottom-color: black" th:href="@{/detalleDispositivoPlan/irBuscar}" id="add-row"
 						   	type = "button"
 						   	class= "btn btn-primary btn-md left-block">
 							<span class="glyphicon glyphicon-search"></span> Buscar
@@ -44,22 +44,22 @@
 							<thead>
 								<tr>
 									<th class="text-center">CODIGO</th>
-									<th class="text-center">Detalle Dispositivo</th>
-									<th class="text-center">Descripcion Dispositivo</th>
 									<th class="text-center">Plan</th>
 									<th class="text-center">Dispositivo</th>
+									<th class="text-center">Descripcion Dispositivo</th>
+									
 								</tr>
 							</thead>
 							
 							<tbody>
-								<tr th:each="due: ${listaDetalleDispositivos}">
+								<tr th:each="detd: ${listaDetalleDispositivoPlanes}">
 									<td th:text="${detd.idDetalleDispositivoPlan}"></td>
-									<td th:text="${detd.descripcionDetalleDP}"></td>
-									<td th:text="${detd.plan}"></td>
-									<td th:text="${detd.dispositivo}"></td>
+									<td th:text="${detd.plan.nombrePlan}"></td>
+									<td th:text="${detd.dispositivo.modeloDisp}"></td>
+									<td th:text="${detd.dispositivo.descripcionDisp}"></td>
 									
-									<td class="text-center"><a class="glyphicon glyphicon-trash" th:href="@{/detalledispositivo/eliminar?id=}+${detd.ididDetalleDispositivoPlan}"> Eliminar</a></td>
-									<td class="text-center"><a class="glyphicon glyphicon-pencil" th:href="@{'/detalledispositivo/modificar/' + ${detd.idDetalleDispositivoPlan}"> Modificar</a></td>
+									<td class="text-center"><a class="glyphicon glyphicon-trash" th:href="@{/detalleDispositivoPlan/eliminar?id=}+${detd.idDetalleDispositivoPlan}"> Eliminar</a></td>
+									<td class="text-center"><a class="glyphicon glyphicon-pencil" th:href="@{'/detalleDispositivoPlan/modificar/' + ${detd.idDetalleDispositivoPlan}}"> Modificar</a></td>
 								</tr>
 							</tbody>
 						</table>

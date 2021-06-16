@@ -51,14 +51,14 @@
 							</thead>
 							
 							<tbody>
-								<tr th:each="rac: ${listaPlanes}">
+								<tr th:each="pla: ${listaPlanes}">
 									<td th:text="${pla.idPlan}"></td>
 									<td th:text="${pla.nombrePlan}"></td>
 									<td th:text="${pla.descripcionPlan}"></td>
 									<td th:text="${pla.precioPlan}"></td>
 									
-									<td class="text-center"><a class="glyphicon glyphicon-trash" th:href="@{/plan/eliminar?id=}+${rac.idPlan}"> Eliminar</a></td>
-									<td class="text-center"><a class="glyphicon glyphicon-pencil" th:href="@{'/plan/modificar/' + ${rac.idPlan}}"> Modificar</a></td>
+									<td class="text-center"><a class="glyphicon glyphicon-trash" th:href="@{/plan/eliminar?id=}+${pla.idPlan}"> Eliminar</a></td>
+									<td class="text-center"><a class="glyphicon glyphicon-pencil" th:href="@{'/plan/modificar/' + ${pla.idPlan}}"> Modificar</a></td>
 								</tr>
 							</tbody>
 						</table>

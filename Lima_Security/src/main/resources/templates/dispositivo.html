@@ -39,7 +39,7 @@
 						<input type="text" class="form-control" th:field="*{tipoDispositivo}" id="tipodispositivo"></input>
 						
 						<div class="alert alert-danger" th:if="${#fields.hasErrors('tipoDispositivo')}" 
-							th:errors="*{tipoDispositivo">						
+							th:errors="*{tipoDispositivo}">						
 						</div>
 						
 						<div class="form-group">
@@ -47,7 +47,7 @@
 						<input type="text" class="form-control" th:field="*{modeloDisp}" id="modelodisp"></input>
 						
 						<div class="alert alert-danger" th:if="${#fields.hasErrors('modeloDisp')}" 
-							th:errors="*{modeloDisp">						
+							th:errors="*{modeloDisp}">						
 						</div>
 						
 						
@@ -56,7 +56,7 @@
 						<input type="text" class="form-control" th:field="*{descripcionDisp}" id="descripciondisp"></input>
 						
 						<div class="alert alert-danger" th:if="${#fields.hasErrors('descripcionDisp')}" 
-							th:errors="*{descripcionDisp">						
+							th:errors="*{descripcionDisp}">						
 						</div>
 						
 						<div class="form-group">
@@ -64,7 +64,7 @@
 						<input type="text" class="form-control" th:field="*{precioDisp}" id="preciodisp"></input>
 						
 						<div class="alert alert-danger" th:if="${#fields.hasErrors('precioDisp')}" 
-							th:errors="*{precioDisp">						
+							th:errors="*{precioDisp}">						
 						</div>
 						
 						
@@ -73,7 +73,7 @@
 				</div>
 				
 				<button type="submit" class="btn btn-primary">Aceptar</button>
-				<a href="/dueno/listar" class="btn btn-danger">Cancelar</a>
+				<a href="/dispositivo/listar" class="btn btn-danger">Cancelar</a>
 				
 			</form>
 		</div>

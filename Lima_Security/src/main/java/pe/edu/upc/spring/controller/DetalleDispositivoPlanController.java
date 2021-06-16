@@ -41,7 +41,7 @@ public class DetalleDispositivoPlanController {
 	@RequestMapping("/")
 	public String irPaginaListadoDetalleDispositivoPlanes(Map<String,Object>model) {
 		model.put("listaDetalleDispositivoPlanes", dpService.listar());
-		return "listaDetalleDispositivoPlanes";
+		return "listDetalleDispositivo";
 	}
 	
 	@RequestMapping("/irRegistrar")
@@ -100,7 +100,7 @@ public class DetalleDispositivoPlanController {
 	public String eliminar(Map<String, Object> model, @RequestParam(value="id") Integer id) {
 		try {
 			if (id != null && id>0) {
-				dService.eliminar(id);
+				dpService.eliminar(id);
 				model.put("listaDetalleDispositivoPlanes", dpService.listar());
 			}
 		}
@@ -109,13 +109,13 @@ public class DetalleDispositivoPlanController {
 			model.put("mensaje", "Ocurrio un error");
 			model.put("listaDetalleDispositivoPlanes", dpService.listar());
 		}
-		return "listaDetalleDispositivoPlanes";
+		return "listDetalleDispositivo";
 	}
 	
 	@RequestMapping("/listar")
 	public String listar(Map<String, Object> model) {
 		model.put("listaDetalleDispositivoPlanes", dpService.listar());
-		return "listaDetalleDispositivoPlanes";
+		return "listDetalleDispositivo";
 	}
 	
 			
