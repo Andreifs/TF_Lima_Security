@@ -70,8 +70,8 @@ public class PlanServiceImpl implements IPlanService {
 	
 	@Override
 	@Transactional
-	public List<Plan> buscarId(String idPlan) {
-		return dPlan.buscarNombre(idPlan);
+	public List<Plan> buscarId(int idPlan) {
+		return dPlan.buscarId(idPlan);
 	}
 	
 	

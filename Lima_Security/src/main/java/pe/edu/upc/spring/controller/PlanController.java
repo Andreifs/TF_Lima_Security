@@ -97,7 +97,7 @@ public class PlanController {
 	@RequestMapping("/irBuscar")
 	public String buscar(Model model) {
 		model.addAttribute("plan", new Plan());
-		return "buscar";
+		return "listPlan";
 	}
 	
 	@RequestMapping("/buscar")
@@ -109,13 +109,13 @@ public class PlanController {
 		plan.setNombrePlan(plan.getNombrePlan());
 		listaPlanes = pService.buscarNombre(plan.getNombrePlan());
 		if (listaPlanes.isEmpty()) {
-			listaPlanes = pService.buscarId(plan.getNombrePlan());
+			listaPlanes = pService.buscarId(plan.getIdPlan());
 		}
 		if (listaPlanes.isEmpty()) {
 			model.put("mensaje", "No se encontraron coincidencias");
 		}
 		model.put("listaPlanes", listaPlanes);
-		return "buscar";
+		return "listPlan";
 	}
 	
 	

@@ -24,19 +24,21 @@
 	<body>
 		<div th:replace="fragments/header :: header"></div>
 		
-		<div class="container">
-			<form id="myform">
+		<div class="container-fluid">
+			<form action="myform">
 				<div class="row clearfix">
 					<div class="col-md-12 column">
+						
 						<a 	style="border-bottom-color: black" th:href="@{/plan/irRegistrar}" id="add-row"
 						   	type = "button"
 						   	class= "btn btn-primary btn-md left-block">
 							<span class="glyphicon glyphicon-plus"></span> Plan
-						</a>
-						
+						</a>					
 						<a 	style="border-bottom-color: black" th:href="@{/plan/irBuscar}" id="add-row"
-						   	type = "button"
+							
+						   	type = "submit"
 						   	class= "btn btn-primary btn-md left-block">
+						   	
 							<span class="glyphicon glyphicon-search"></span> Buscar
 						</a>
 						
@@ -67,7 +69,7 @@
 				<div th:if="${mensaje}" class="alert alert-danger">
 					<p th:text="${mensaje}"></p>
 				</div>
-			</form>
+				</form>
 		</div>
 		
 		<div th:replace="fragments/footer :: footer"></div>

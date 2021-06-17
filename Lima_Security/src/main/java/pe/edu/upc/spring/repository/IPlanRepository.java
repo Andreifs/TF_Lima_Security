@@ -15,5 +15,5 @@ public interface IPlanRepository extends JpaRepository<Plan, Integer>{
 	List<Plan> buscarNombre(@Param("nombrePlan") String nombrePlan);
 	
 	@Query("select p from Plan p where p.idPlan like %:idPlan%")
-	List<Plan> buscarId(String idPlan);	
+	List<Plan> buscarId(int idPlan);	
 }
