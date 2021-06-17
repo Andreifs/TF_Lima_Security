@@ -21,8 +21,13 @@
 	background-color: silver;
 }
 
-.col1{
-	padding-left: 15px;
-	background-color: silver;
-		
-}
+  .thumbnail {
+    padding: 0 0 15px 0;
+    border: none;
+    border-radius: 0;
+  }
+  .thumbnail img {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 10px;
+  }

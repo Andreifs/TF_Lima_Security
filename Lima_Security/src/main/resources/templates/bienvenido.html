@@ -46,36 +46,74 @@
   				
 			</div>
 			
-			<div class="container-qs text-center">
-  				<h3 class="margin">¿Quienes Somos?</h3>
-  				<p>Somos una empresa de seguridad</p>
-			</div>
 			
-			
-		<div class="container-fluid bg-3 text-center" >    
-  			<h3>¿Que Ofrecemos?</h3><br>
-  			<div class="row" style="padding-left: 200px; background-color: #DADADA">
-    			<div class="col1 col-sm-5">
-    				<h3>Dispositivos Tecnologicos</h3>
-      				<img th:src="@{/imagenes/camera1.jpg}" class="img-responsive" style="width:100%" alt="camara1">
-      				<p>Productos de Calidad con nuestros Sistemas de Seguridad mas importantes a nivel tecnologico.</p>
-      				<button type="button" class="btn btn-info btn-lg">Ver más</button>
-      				<br>
-      			</div>
-      		
-    			<div class="col-sm-5" >
-    				<h3>Los Mejores Planes</h3>
-      				<img th:src="@{/imagenes/sujeto1.jpg}" class="img-responsive" style="width:100%;" alt="sujeto1">
-       				<p>Contamos con los mejores Planes que se adecuan a todas tus necesidades.</p>
-       				<button type="button" class="btn btn-info btn-lg">Ver más</button>
-       				<br>
-    			</div>
-    		</div>
-    			
- 
-  </div>
-</div><br>
+		<div class="container-fluid bg-3 text-center" style="background-color: #DADADA; margin-top: -30px" >    
+  			<h2>¿Quienes Somos?</h2><br>
+  			<h4>Somos una empresa de seguridad</h4>
+  		</div>
+    
+    
+    		<!--------------------¿QUE OFRECEMOS?---------------------------->	
+    		<div id="portfolio" class="container-fluid text-center bg-grey">
+  				<h2>¿Que Ofrecemos?</h2><br>
+  					<div class="row text-center slideanim">
+    					<div class="col-sm-4">
+     						<div class="thumbnail">
+        					<img th:src="@{/imagenes/sujeto1.jpg}" alt="Paris" width="400" height="300">
+        						<h3><strong>Dispositivos Tecnologicos</strong></h3>
+        						<p>Productos de Calidad con nuestros Sistemas de Seguridad mas importantes a nivel tecnologico.</p>
+        						<button type="button" class="btn btn-info btn-lg" >Ver más</button>
+      						</div>
+    					</div>
+    					<div class="col-sm-4">
+      						<div class="thumbnail">
+        						<img th:src="@{/imagenes/camera1.jpg}" alt="New York" width="400" height="300">
+        						<h3><strong>Los Mejores Planes</strong></h3>
+        						<p>Contamos con los mejores Planes que se adecuan a todas tus necesidades.</p>
+        						<button type="button" class="btn btn-info btn-lg">Ver más</button>
+      						</div>
+    					</div>
+    					<div class="col-sm-4">
+     						<div class="thumbnail">
+        						<img th:src="@{/imagenes/seguridad1.png}" alt="San Francisco" width="400" height="300">
+        						<h3><strong>Servicios Incomparables</strong></h3>
+        						<p>Yes, San Fran is ours</p>
+        						<button type="button" class="btn btn-info btn-lg">Ver más</button>
+      						</div>
+    					</div>
+  					</div><br>
+ 			</div>
+			</div><br>
 
+
+				<!--------------------CONTACTO------------------------------>
+				<div id="contact" class="container-fluid bg-grey">
+  					<h2 class="text-center">CONTACTO</h2><br>
+  						<div class="row">
+    						<div class="col-sm-5">
+     							<p>Contactanos y te responderemos en menos de 24 horas.</p>
+      							<p><span class="glyphicon glyphicon-map-marker"></span> Lima, PE</p>
+      							<p><span class="glyphicon glyphicon-phone"></span> +51 99999999</p>
+      							<p><span class="glyphicon glyphicon-envelope"></span> contac@lsl.pe</p>
+    						</div>
+    				<div class="col-sm-7 slideanim">
+      					<div class="row">
+        					<div class="col-sm-6 form-group">
+          						<input class="form-control" id="name" name="name" placeholder="Nombre" type="text" required>
+        					</div>
+        					<div class="col-sm-6 form-group">
+          						<input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+        					</div>
+      					</div>
+      				<textarea class="form-control" id="comments" name="comments" placeholder="Comentario" rows="5"></textarea><br>
+      					<div class="row">
+        					<div class="col-sm-12 form-group">
+          						<button class="btn btn-info pull-middle" type="submit">Enviar</button>
+        					</div>
+      					</div>
+    				</div>
+  						</div>
+						</div>
 		
 		<div th:replace="fragments/footer :: footer"></div>
 	</body>
