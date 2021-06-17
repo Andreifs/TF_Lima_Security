@@ -40,42 +40,119 @@
     				<p>Nada más importante	que tu seguridad y la de tu familia</p>
     				<br>
     				<br>
-    				<button type="button" class="btn btn-info btn-lg">Nuestros Servicios</button>
+    				<a class="btn btn-info btn-lg" th:href="@{/servicio/listar}">Nuestros Servicios</a>
   				</div>
   				
   				
 			</div>
 			
-			<div class="container-qs text-center">
-  				<h3 class="margin">¿Quienes Somos?</h3>
-  				<p>Somos una empresa de seguridad</p>
-			</div>
 			
-			
-		<div class="container-fluid bg-3 text-center" >    
-  			<h3>¿Que Ofrecemos?</h3><br>
-  			<div class="row" style="padding-left: 200px; background-color: #DADADA">
-    			<div class="col1 col-sm-5">
-    				<h3>Dispositivos Tecnologicos</h3>
-      				<img th:src="@{/imagenes/camera1.jpg}" class="img-responsive" style="width:100%" alt="camara1">
-      				<p>Productos de Calidad con nuestros Sistemas de Seguridad mas importantes a nivel tecnologico.</p>
-      				<button type="button" class="btn btn-info btn-lg">Ver más</button>
-      				<br>
-      			</div>
-      		
-    			<div class="col-sm-5" >
-    				<h3>Los Mejores Planes</h3>
-      				<img th:src="@{/imagenes/sujeto1.jpg}" class="img-responsive" style="width:100%;" alt="sujeto1">
-       				<p>Contamos con los mejores Planes que se adecuan a todas tus necesidades.</p>
-       				<button type="button" class="btn btn-info btn-lg">Ver más</button>
-       				<br>
-    			</div>
-    		</div>
-    			
- 
-  </div>
-</div><br>
+		<div class="container-fluid bg-3 text-center" style="background-color: #DADADA; margin-top: -30px" >    
+  				<h2>¿Quienes Somos?</h2><br>
+  				<h4>Somos una empresa centrada en el rubro de seguridad, nos encargamos de la instalación y monitoreo de sistemas 
+  						de seguridad para distintos ambientes . Contamos con un equipo especializado 
+  					comprometido en mantener tu hogar o local a salvo utilizando tecnología de punta que existe actualmente 
+  						en el mercado como sensores de movimiento, cámaras de alta definición, alarmas,etc.</h4><br>
+  		</div>
+    
+    
+    		<!--------------------¿QUE OFRECEMOS?---------------------------->	
+    		<div id="portfolio" class="container-fluid text-center bg-grey">
+  				<h2>¿Que Ofrecemos?</h2><br>
+  					<div class="row text-center slideanim">
+    					<div class="col-sm-4">
+     						<div class="thumbnail">
+        					<img th:src="@{/imagenes/sujeto1.jpg}" alt="dispositivo-card" width="400" height="300">
+        						<h3><strong>Dispositivos Tecnologicos</strong></h3>
+        						<p>Productos de Calidad con nuestros Sistemas de Seguridad mas importantes a nivel tecnologico.</p>
+        						<a class="btn btn-info btn-lg" th:href="@{/dispositivo/listar}">Ver más</a>
+      						</div>
+    					</div>
+    					<div class="col-sm-4">
+      						<div class="thumbnail">
+        						<img th:src="@{/imagenes/camera1.jpg}" alt="plan-card" width="400" height="300">
+        						<h3><strong>Los Mejores Planes</strong></h3>
+        						<p>Contamos con los mejores Planes que se adecuan a todas tus necesidades.</p>
+        						<a class="btn btn-info btn-lg" th:href="@{/plan/listar}">Ver más</a>
+      						</div>
+    					</div>
+    					<div class="col-sm-4">
+     						<div class="thumbnail">
+        						<img th:src="@{/imagenes/seguridad1.jpg}" alt="servicio-card" width="400" height="300">
+        						<h3><strong>Servicios Incomparables</strong></h3>
+        						<p>Nuestros servicios especializados contemplan todas las necesidades de nuestros clientes</p>
+        						<a class="btn btn-info btn-lg" th:href="@{/servicio/listar}">Ver más</a>
+      						</div>
+    					</div>
+  					</div><br>
+ 			</div>
+			</div><br>
 
+				<!-- Container (Services Section) -->
+				<div id="services" class="container-fluid text-center" style="background-color:#DADADA ">
+  					<h2>¿Por que contratar Lima Security Life?</h2>
+  						<br>
+  						<br>
+  						<div class="row slideanim">
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-usd loguito"></span>
+      <h4>ACCESIBLE</h4>
+      <p>Nuestros precios son más accesibles en comparacion a la competencia</p>
+    </div>
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-lock loguito"></span>
+      <h4>SEGURO</h4>
+      <p>Garantizamos seguridad con la ultima tecnologia del mercado</p>
+    </div>
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-check loguito"></span>
+      <h4>CONFIABLE</h4>
+      <p>Nuestros especialistas son destacados por su atencion y empatia</p>
+    </div>
+  </div>
+  <br><br>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+				<!--------------------CONTACTO------------------------------>
+				<div id="contact" class="container-fluid bg-grey">
+  					<h2 class="text-center">CONTACTO</h2><br>
+  						<div class="row">
+    						<div class="col-sm-5">
+     							<p>Contactanos y te responderemos en menos de 24 horas.</p>
+      							<p><span class="glyphicon glyphicon-map-marker"></span> Lima, PE</p>
+      							<p><span class="glyphicon glyphicon-phone"></span> +51 99999999</p>
+      							<p><span class="glyphicon glyphicon-envelope"></span> contac@lsl.pe</p>
+    						</div>
+    				<div class="col-sm-7 slideanim">
+      					<div class="row">
+        					<div class="col-sm-6 form-group">
+          						<input class="form-control" id="name" name="name" placeholder="Nombre" type="text" required>
+        					</div>
+        					<div class="col-sm-6 form-group">
+          						<input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+        					</div>
+      					</div>
+      				<textarea class="form-control" id="comments" name="comments" placeholder="Comentario" rows="5"></textarea><br>
+      					<div class="row">
+        					<div class="col-sm-12 form-group">
+          						<button class="btn btn-info pull-middle" type="submit">Enviar</button>
+        					</div>
+      					</div>
+    				</div>
+  						</div>
+						</div>
 		
 		<div th:replace="fragments/footer :: footer"></div>
 	</body>
