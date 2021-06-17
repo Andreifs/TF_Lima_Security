@@ -40,7 +40,7 @@
     				<p>Nada más importante	que tu seguridad y la de tu familia</p>
     				<br>
     				<br>
-    				<button type="button" class="btn btn-info btn-lg">Nuestros Servicios</button>
+    				<a class="btn btn-info btn-lg" th:href="@{/servicio/listar}">Nuestros Servicios</a>
   				</div>
   				
   				
@@ -48,8 +48,11 @@
 			
 			
 		<div class="container-fluid bg-3 text-center" style="background-color: #DADADA; margin-top: -30px" >    
-  			<h2>¿Quienes Somos?</h2><br>
-  			<h4>Somos una empresa de seguridad</h4>
+  				<h2>¿Quienes Somos?</h2><br>
+  				<h4>Somos una empresa centrada en el rubro de seguridad, nos encargamos de la instalación y monitoreo de sistemas 
+  						de seguridad para distintos ambientes . Contamos con un equipo especializado 
+  					comprometido en mantener tu hogar o local a salvo utilizando tecnología de punta que existe actualmente 
+  						en el mercado como sensores de movimiento, cámaras de alta definición, alarmas,etc.</h4><br>
   		</div>
     
     
@@ -59,31 +62,67 @@
   					<div class="row text-center slideanim">
     					<div class="col-sm-4">
      						<div class="thumbnail">
-        					<img th:src="@{/imagenes/sujeto1.jpg}" alt="Paris" width="400" height="300">
+        					<img th:src="@{/imagenes/sujeto1.jpg}" alt="dispositivo-card" width="400" height="300">
         						<h3><strong>Dispositivos Tecnologicos</strong></h3>
         						<p>Productos de Calidad con nuestros Sistemas de Seguridad mas importantes a nivel tecnologico.</p>
-        						<button type="button" class="btn btn-info btn-lg" >Ver más</button>
+        						<a class="btn btn-info btn-lg" th:href="@{/dispositivo/listar}">Ver más</a>
       						</div>
     					</div>
     					<div class="col-sm-4">
       						<div class="thumbnail">
-        						<img th:src="@{/imagenes/camera1.jpg}" alt="New York" width="400" height="300">
+        						<img th:src="@{/imagenes/camera1.jpg}" alt="plan-card" width="400" height="300">
         						<h3><strong>Los Mejores Planes</strong></h3>
         						<p>Contamos con los mejores Planes que se adecuan a todas tus necesidades.</p>
-        						<button type="button" class="btn btn-info btn-lg">Ver más</button>
+        						<a class="btn btn-info btn-lg" th:href="@{/plan/listar}">Ver más</a>
       						</div>
     					</div>
     					<div class="col-sm-4">
      						<div class="thumbnail">
-        						<img th:src="@{/imagenes/seguridad1.png}" alt="San Francisco" width="400" height="300">
+        						<img th:src="@{/imagenes/seguridad1.jpg}" alt="servicio-card" width="400" height="300">
         						<h3><strong>Servicios Incomparables</strong></h3>
-        						<p>Yes, San Fran is ours</p>
-        						<button type="button" class="btn btn-info btn-lg">Ver más</button>
+        						<p>Nuestros servicios especializados contemplan todas las necesidades de nuestros clientes</p>
+        						<a class="btn btn-info btn-lg" th:href="@{/servicio/listar}">Ver más</a>
       						</div>
     					</div>
   					</div><br>
  			</div>
 			</div><br>
+
+				<!-- Container (Services Section) -->
+				<div id="services" class="container-fluid text-center" style="background-color:#DADADA ">
+  					<h2>¿Por que contratar Lima Security Life?</h2>
+  						<br>
+  						<br>
+  						<div class="row slideanim">
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-usd loguito"></span>
+      <h4>ACCESIBLE</h4>
+      <p>Nuestros precios son más accesibles en comparacion a la competencia</p>
+    </div>
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-lock loguito"></span>
+      <h4>SEGURO</h4>
+      <p>Garantizamos seguridad con la ultima tecnologia del mercado</p>
+    </div>
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-check loguito"></span>
+      <h4>CONFIABLE</h4>
+      <p>Nuestros especialistas son destacados por su atencion y empatia</p>
+    </div>
+  </div>
+  <br><br>
+</div>
+
+
+
+
+
+
+
+
+
+
+
 
 
 				<!--------------------CONTACTO------------------------------>
