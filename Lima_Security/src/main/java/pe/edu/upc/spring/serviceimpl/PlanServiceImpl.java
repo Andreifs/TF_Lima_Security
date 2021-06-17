@@ -67,4 +67,12 @@ public class PlanServiceImpl implements IPlanService {
 		return dPlan.buscarNombre(nombrePlan);
 	}
 	
+	
+	@Override
+	@Transactional
+	public List<Plan> buscarId(String idPlan) {
+		return dPlan.buscarNombre(idPlan);
+	}
+	
+	
 }

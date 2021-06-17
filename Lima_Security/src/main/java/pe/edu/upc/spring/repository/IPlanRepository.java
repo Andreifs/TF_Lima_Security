@@ -13,5 +13,7 @@ import pe.edu.upc.spring.model.Plan;
 public interface IPlanRepository extends JpaRepository<Plan, Integer>{
 	@Query("from Plan p where p.nombrePlan like %:nombrePlan%")
 	List<Plan> buscarNombre(@Param("nombrePlan") String nombrePlan);
-
+	
+	@Query("select p from Plan p where p.idPlan like %:idPlan%")
+	List<Plan> buscarId(String idPlan);	
 }

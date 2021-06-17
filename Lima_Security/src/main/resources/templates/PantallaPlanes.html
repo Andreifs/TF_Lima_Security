@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	
+<head>
+		<meta charset="UTF-8"></meta>
+		<title>Pantalla Planes</title>
+		
+	
+		
+		<script type="text/javascript"
+				src="ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.js">
+		</script>
+		
+		<link
+			href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+			rel="stylesheet" id="bootstrap-css">
+		</link>
+		
+		<link rel="stylesheet" th:href ="@{/css/estilos.css}"/>
+		<script
+			src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js">
+		</script>
+		
+		<script src="code.jquery.com/jquery-3.2.1.min.js"></script>
+		
+		
+	</head>
+	
+	<body style="background-color: silver;" >
+		<div th:replace="fragments/header :: header"></div>
+		
+		
+			<div class="jumbotron"  >
+  				<div class="container text-right">
+    				<h1>Lima Security Life</h1>  
+    				
+    				<br>    
+    				<br>
+    				<br>
+    				<p>Contamos con los planes que más se adecue a su familia y negocio</p>
+    				<br>
+    				<br>    				
+  				</div>
+  				
+  				
+			</div>
+			
+		<div class ="container.fluid bg=warning">
+			<div class = "container py-5">
+				<div class= "row">
+				
+					<div class= "col md 4">
+						<div class="card text-center">
+							  <div>
+							  <span class ="h1">PLAN HOGAR</span>
+							  </div><br> 
+							  <div class="card-body">							    
+							    <p class="card-text">Plan Hogar es un plan económico que te ofrecemos <br> 
+							    					para mantener protegido tu hogar.<br> 
+									<br> CUENTA CON:
+									<br>- 3 cámaras de seguridad XIAOMI 360° 1080P
+									<br>- 2 sensores PHILIP para proteger puertas y ventanas
+									<br>- Seguimiento de tu hogar desde tu celular
+									<br>- Mantenimiento de equipo 
+									<br>- No incluye servicio de instalación
+									<br>-Garantía de 6 meses
+									<br>- Pago único</p>
+							    <a href="#" class="card-footer btn bg-primary text-white">Eliminar</a>
+							    <a href="#" class="card-footer btn bg-primary text-white">Modificar</a>
+							    <a href="#" class="card-footer btn bg-primary text-white">Agregar</a>
+							  </div>
+							 
+						</div>
+					</div>
+					<br> <br> 
+					<div class= "col md 4">
+						<div class="card text-center">
+							  <div>
+							  <span class ="h1">PLAN NEGOCIO PEQUEÑO</span>
+							  </div><br>
+							  <div class="card-body">							 
+							    <p class="card-text">Plan para que puedas mantener seguro tu 
+							    <br>pequeño negocio.
+									<br> CUENTA CON:
+									<br>- 5cámaras de seguridad XIAOMI 360° 1080P
+									<br>- 4 sensores PHILIP para proteger puertas y ventanas
+									<br>- Seguimiento de tu hogar negocio desde tu celular
+									<br>- Mantenimiento de equipo  
+									<br>- Incluye servicio de instalación
+									<br>- Pago mensual</p>
+							    <a href="#" class="card-footer btn bg-primary text-white">Eliminar</a>
+							    <a href="#" class="card-footer btn bg-primary text-white">Modificar</a>
+							  </div>
+							 
+						</div>
+						
+						<br> <br> 
+						<div class= "col md 4">
+						<div class="card text-center">
+							  <div>
+							  <span class ="h1">PLAN NEGOCIO MEDIANO</span>
+							  </div><br>
+							  <div class="card-body">							 
+							    <p class="card-text">Plan para que puedas mantener  
+							    <br>pequeño negocio.
+									<br> CUENTA CON:
+									<br>- 6 cámaras de seguridad Domo Ip 2Mp Hd 1080P
+									<br>- 6 sensores PHILIP para proteger puertas y ventanas
+									<br>- Seguimiento de tu negocio desde tu celular
+									<br>- Mantenimiento de equipo  
+									<br>- Incluye servicio de instalación
+									<br>- Servicio de vigilancia a distancia las 24 horas
+									<br>- Pago mensual</p>
+							    <a href="#" class="card-footer btn bg-primary text-white">Eliminar</a>
+							    <a href="#" class="card-footer btn bg-primary text-white">Modificar</a>
+							  </div>
+							 
+						</div>
+					</div>
+						
+						
+						
+						
+						
+						
+					</div>
+				</div>		
+		
+			</div>
+		</div>
+			
+		<div th:replace="fragments/footer :: footer"></div>
+	</body>
+	
+</html>

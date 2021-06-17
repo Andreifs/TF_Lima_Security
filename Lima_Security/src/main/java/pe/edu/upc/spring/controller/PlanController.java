@@ -1,5 +1,6 @@
 package pe.edu.upc.spring.controller;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.sun.el.parser.ParseException;
+
 
 import pe.edu.upc.spring.model.Plan;
 import pe.edu.upc.spring.service.IPlanService;
@@ -92,7 +94,29 @@ public class PlanController {
 		return "listPlan";
 	}
 	
+	@RequestMapping("/irBuscar")
+	public String buscar(Model model) {
+		model.addAttribute("plan", new Plan());
+		return "buscar";
+	}
 	
+	@RequestMapping("/buscar")
+	public String findByCategory(Map<String, Object> model, 
+								@ModelAttribute Plan plan) 
+			throws ParseException	
+	{
+		List<Plan> listaPlanes;
+		plan.setNombrePlan(plan.getNombrePlan());
+		listaPlanes = pService.buscarNombre(plan.getNombrePlan());
+		if (listaPlanes.isEmpty()) {
+			listaPlanes = pService.buscarId(plan.getNombrePlan());
+		}
+		if (listaPlanes.isEmpty()) {
+			model.put("mensaje", "No se encontraron coincidencias");
+		}
+		model.put("listaPlanes", listaPlanes);
+		return "buscar";
+	}
 	
 	
 }
