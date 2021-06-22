@@ -37,6 +37,8 @@ public class PagoCliente implements Serializable {
 	    @ManyToOne
 	    @JoinColumn(name="idUsuario")
 	    private Usuario usuario;
+	    
+	    
 
 		public PagoCliente() {
 			super();
