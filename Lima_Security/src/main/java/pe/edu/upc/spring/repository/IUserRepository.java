@@ -7,7 +7,7 @@ import pe.edu.upc.spring.model.Users;
 
 @Repository
 public interface IUserRepository extends JpaRepository<Users, Integer>{
-	public Users findByUserName(String username);
+	public Users findByUsername(String username);
 	
 	
 }
