@@ -15,7 +15,12 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.sun.el.parser.ParseException;
 
+import pe.edu.upc.spring.model.Compra;
+import pe.edu.upc.spring.model.DetalleDispositivoPlan;
+import pe.edu.upc.spring.model.Dispositivo;
 import pe.edu.upc.spring.model.Pago;
+import pe.edu.upc.spring.model.Plan;
+import pe.edu.upc.spring.service.ICompraService;
 import pe.edu.upc.spring.service.IPagoService;
 
 @Controller
@@ -24,6 +29,9 @@ public class PagoController {
 	
 	@Autowired
 	private IPagoService pService;
+	
+	@Autowired
+	private ICompraService sService;
 	
 	@RequestMapping("/bienvenido")
 	public String irPaginaBienvenida() {
@@ -38,14 +46,18 @@ public class PagoController {
 	
 	@RequestMapping("/irRegistrar")
 	public String irPaginaRegistrar(Model model) {
-		model.addAttribute("pago", new Pago());
-		return "pago";
+		model.addAttribute("listaCompras", sService.listar());
+		
+		model.addAttribute("pago", new DetalleDispositivoPlan());
+		model.addAttribute("compra", new Compra());
+		
+		return "compra";
 	}
 	
 	@RequestMapping("/registrar")
 	public String registrar(@ModelAttribute Pago objPago, BindingResult binRes, Model model) throws ParseException {
 		if (binRes.hasErrors())
-			return "pago";
+			return "compra";
 		else {
 			boolean flag = pService.insertar(objPago);
 			if (flag)

@@ -60,6 +60,55 @@
 					<p th:text="${mensaje}"></p>
 				</div>
 			</form>
+			
+			<form th:action="@{/pago/registrar}" method="post" th:object="${pago}">
+			<div class="form-group">
+					<label for="idPago">ID:</label>
+					<input type="text" class="form-control" th:field="*{idPago}"></input>
+				</div>
+				
+				<div class="form-group">
+						<label for="tipoTarjeta">Tipo de Tarjeta</label>
+						<input type="text" class="form-control" th:field="*{tipoTarjeta}" id="tipoTarjeta"></input>
+						
+						<div class="alert alert-danger" th:if="${#fields.hasErrors('tipoTarjeta')}" 
+							th:errors="*{tipoTarjeta}">						
+						</div>
+				</div>
+				
+				<div class="form-group">
+						<label for="numTarjeta">Nro. Trajeta</label>
+						<input type="text" class="form-control" th:field="*{numTarjeta}" id="numTarjeta"></input>
+						
+						<div class="alert alert-danger" th:if="${#fields.hasErrors('numTarjeta')}" 
+							th:errors="*{numTarjeta}">						
+						</div>
+				</div>
+				<div class="form-group">
+						<label for="cvv">CVV</label>
+						<input type="text" class="form-control" th:field="*{cvv}" id="cvv"></input>
+						
+						<div class="alert alert-danger" th:if="${#fields.hasErrors('cvv')}" 
+							th:errors="*{cvv}">						
+						</div>
+				</div>
+				
+				<label for="fechaVencimiento">Fecha de Vencimiento:</label>
+					<input type="date" class="form-control" th:field="*{dateVencimiento}" id="fechaVencimiento"></input>
+					
+					<div class="alert alert-danger" th:if="${#fields.hasErrors('dateVencimiento')}" 
+							th:errors="*{dateVencimiento}">						
+					</div>
+					
+				<label for="fechaPago">Fecha de Pago:</label>
+					<input type="date" class="form-control" th:field="*{datePago}" id="fechaPago"></input>
+					
+					<div class="alert alert-danger" th:if="${#fields.hasErrors('datePago')}" 
+							th:errors="*{datePago}">						
+					</div>
+					
+					
+			</form>
 		</div>
 		<div th:replace="fragments/footer :: footer"></div>
 		

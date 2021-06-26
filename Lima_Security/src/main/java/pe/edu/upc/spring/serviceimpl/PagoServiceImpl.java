@@ -30,23 +30,6 @@ public class PagoServiceImpl implements IPagoService {
 
 	@Override
 	@Transactional
-	public boolean modificar(Pago pago) {
-		/*
-		boolean flag = false;
-		try {
-			dDueno.save(dueno);
-			flag = true;
-		}
-		catch(Exception ex) {
-			System.out.println("Sucedio un error...");
-		}
-		return flag;
-		*/
-		return true;
-	}
-
-	@Override
-	@Transactional
 	public void eliminar(int idPago) {
 		dPago.deleteById(idPago);
 		
