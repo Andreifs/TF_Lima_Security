@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	
+	<head>
+		<meta charset="UTF-8"></meta>
+		<title>Planes</title>
+		
+		<script type="text/javascript"
+				src="ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.js">
+		</script>
+		
+		<link
+			href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+			rel="stylesheet" id="bootstrap-css">
+		</link>
+		
+		<script
+			src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js">
+		</script>
+		
+		<script src="code.jquery.com/jquery-3.2.1.min.js"></script>
+	</head>
+	
+	<body>
+		<div th:replace="fragments/header :: header"></div>
+		
+		
+		
+	<div class="container">
+			
+			<form th:action="@{/pago/registrar}" method="post" th:object="${pago}">
+			<div class="form-group">
+					<label for="idPago">ID:</label>
+					<input type="text" class="form-control" th:field="*{idPago}"></input>
+				</div>
+				
+				<label for="dispositivo" class= "col-sm-2 col-form-label">Carrito:</label>
+					<select class="form-control" th:field="*{compra.idCompra}"> 
+						<option th:each= "c:${listaCompras}" th:value="${c.idCompra}"
+							 	th:text="${c.idCompra}"
+							 	th:selected="(${c.idCompra} == *{compra.idCompra})">
+						</option>
+					</select>	
+				
+				
+				<div class="form-group">
+						<label for="tipoTarjeta">Tipo de Tarjeta</label>
+						<input type="text" class="form-control" th:field="*{tipoTarjeta}" id="tipoTarjeta"></input>
+						
+						<div class="alert alert-danger" th:if="${#fields.hasErrors('tipoTarjeta')}" 
+							th:errors="*{tipoTarjeta}">						
+						</div>
+				</div>
+				
+				<div class="form-group">
+						<label for="numTarjeta">Nro. Trajeta</label>
+						<input type="text" class="form-control" th:field="*{numTarjeta}" id="numTarjeta"></input>
+						
+						<div class="alert alert-danger" th:if="${#fields.hasErrors('numTarjeta')}" 
+							th:errors="*{numTarjeta}">						
+						</div>
+				</div>
+				<div class="form-group">
+						<label for="cvv">CVV</label>
+						<input type="text" class="form-control" th:field="*{cvv}" id="cvv"></input>
+						
+						<div class="alert alert-danger" th:if="${#fields.hasErrors('cvv')}" 
+							th:errors="*{cvv}">						
+						</div>
+				</div>
+				
+				
+				<label for="fechaVencimiento">Fecha de Vencimiento:</label>
+					<input type="date" class="form-control" th:field="*{dateVencimiento}" id="fechaVencimiento"></input>
+					
+					<div class="alert alert-danger" th:if="${#fields.hasErrors('dateVencimiento')}" 
+							th:errors="*{dateVencimiento}">						
+					</div>
+					
+				<label for="fechaPago">Fecha de Pago:</label>
+					<input type="date" class="form-control" th:field="*{datePago}" id="fechaPago"></input>
+					
+					<div class="alert alert-danger" th:if="${#fields.hasErrors('datePago')}" 
+							th:errors="*{datePago}">						
+					</div>
+					
+					
+					<button type="submit" class="btn btn-primary">Aceptar</button>
+				<a href="/compra/irListar" class="btn btn-danger">Cancelar</a>
+			</form>
+			</div>
+		
+		<div th:replace="fragments/footer :: footer"></div>
+	</body>
+	
+</html>

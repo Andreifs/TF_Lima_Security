@@ -68,6 +68,10 @@
 				<button type="submit" class="btn btn-primary">Aceptar</button>
 				<a href="/plan/listar" class="btn btn-danger">Cancelar</a>
 				
+				<div th:if="${mensaje}" class="alert alert-danger">
+					<p th:text="${mensaje}"></p>
+				</div>
+				
 			</form>
 		</div>
 		

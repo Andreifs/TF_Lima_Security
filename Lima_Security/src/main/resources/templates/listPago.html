@@ -3,7 +3,7 @@
 	
 	<head>
 		<meta charset="UTF-8"></meta>
-		<title>Detalle Dispositivo</title>
+		<title>Pagos</title>
 		
 		<script type="text/javascript"
 				src="ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.js">
@@ -24,8 +24,8 @@
 	<body>
 		<div th:replace="fragments/header :: header"></div>
 		
-		<div class="container">
-			<form id="myform">
+		<div class="container-fluid">
+			<form action="myform">
 				<div class="row clearfix">
 					<div class="col-md-12 column">
 						
@@ -33,40 +33,40 @@
 							<thead>
 								<tr>
 									<th class="text-center">CODIGO</th>
-									<th class="text-center">Plan</th>
-									<th class="text-center">Descripcion Plan</th>
-									<th class="text-center">Precio</th>
+									<th class="text-center">Compra</th>
+									<th class="text-center">Tipo de Trajeta</th>
+									<th class="text-center">Número de Tarjeta</th>
+									<th class="text-center">CVV</th>
+									<th class="text-center">Fecha de Vencimiento</th>
+									<th class="text-center">Fecha de Pago</th>
 									
+
 								</tr>
 							</thead>
 							
 							<tbody>
-								<tr th:each="detd: ${listaCompras}">
-									<td th:text="${detd.idCompra}"></td>
-									<td th:text="${detd.plan.nombrePlan}"></td>
-									<td th:text="${detd.plan.descripcionPlan}"></td>
-									<td th:text="${detd.plan.precioPlan}"></td>
-									<td class="text-center"><a class="glyphicon glyphicon-trash" th:href="@{/compra/eliminar?id=}+${detd.idCompra}"> Cancelar</a></td>
-									<td class="text-center"><a class="glyphicon glyphicon" th:href="@{/pago/irRegistrar}"> Pagar</a></td>
-	
+								<tr th:each="pg: ${listaPagos}">
+									<td th:text="${pg.idPago}"></td>
+									<td th:text="${pg.compra.idCompra}"></td>
+									<td th:text="${pg.tipoTarjeta}"></td>
+									<td th:text="${pg.numTarjeta}"></td>
+									<td th:text="${pg.cvv}"></td>
+									<td th:text="${pg.dateVencimiento}"></td>
+									<td th:text="${pg.datePago}"></td>
+									
+							
 								</tr>
 							</tbody>
-							
-						</table>						
-						
+						</table>
 					</div>
 				</div>
-				
-				<a class="btn btn-primary "  th:href="@{/pago/irRegistrar}">Ir a Pago</a>
 				<div th:if="${mensaje}" class="alert alert-danger">
 					<p th:text="${mensaje}"></p>
 				</div>
-			</form>
+				</form>
 		</div>
 		
-		
 		<div th:replace="fragments/footer :: footer"></div>
-		
 	</body>
 	
 </html>

@@ -46,8 +46,7 @@
 									<td th:text="${detd.plan.nombrePlan}"></td>
 									<td th:text="${detd.plan.descripcionPlan}"></td>
 									<td th:text="${detd.plan.precioPlan}"></td>
-									<td class="text-center"><a class="glyphicon glyphicon-trash" th:href="@{/compra/eliminar?id=}+${detd.idCompra}"> Cancelar</a></td>
-									<td class="text-center"><a class="glyphicon glyphicon" th:href="@{/pago/irRegistrar}"> Pagar</a></td>
+				
 	
 								</tr>
 							</tbody>
@@ -57,7 +56,7 @@
 					</div>
 				</div>
 				
-				<a class="btn btn-primary "  th:href="@{/pago/irRegistrar}">Ir a Pago</a>
+
 				<div th:if="${mensaje}" class="alert alert-danger">
 					<p th:text="${mensaje}"></p>
 				</div>

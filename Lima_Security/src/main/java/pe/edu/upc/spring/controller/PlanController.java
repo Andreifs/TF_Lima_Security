@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -43,6 +44,36 @@ public class PlanController {
 		model.addAttribute("plan", new Plan());
 		return "plan";
 	}
+	
+/*	@RequestMapping("/registrar")
+	public String registrar(@ModelAttribute  Plan objPlan, BindingResult binRes, Model model) throws ParseException {
+	
+		if (binRes.hasErrors())
+			return "plan";
+		else {
+			boolean flag;
+			int id =-1;
+			for(Plan p:pService.listar()){
+				if(p.getNombrePlan()==objPlan.getNombrePlan() )
+				{
+					id=p.getIdPlan();
+				}
+			}
+			if(id!=-1) {
+				model.addAttribute("mensaje","Este Plan ya esta registrado");
+				return "redirect:/plan/irRegistrar";
+			}
+			else {
+				flag=pService.insertar(objPlan);
+			}
+			if (flag && id==-1)
+				return "redirect:/plan/listar";
+			else {
+				model.addAttribute("mensaje", "Ocurrio un error");
+				return "redirect:/plan/irRegistrar";
+			}
+		}
+	}*/
 	
 	@RequestMapping("/registrar")
 	public String registrar(@ModelAttribute Plan objPlan, BindingResult binRes, Model model) throws ParseException {

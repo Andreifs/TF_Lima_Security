@@ -30,8 +30,7 @@ public class CompraController {
 
 		@Autowired
 		private IPlanService pService;
-		@Autowired
-		private IUsuarioService dService;
+
 		@Autowired
 		private ICompraService cService;
 		
@@ -96,6 +95,14 @@ public class CompraController {
 			model.put("listaPlanes", pService.listar());
 			return "listPlanClient";
 		}
+		
+		@RequestMapping("/listar2")
+		public String listar2(Map<String, Object> model) {
+			model.put("listaCompras", cService.listar());
+			return "listCompra";
+		}
+		
+		
 		
 		
 		

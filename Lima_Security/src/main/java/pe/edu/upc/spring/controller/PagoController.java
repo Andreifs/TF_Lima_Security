@@ -16,8 +16,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.sun.el.parser.ParseException;
 
 import pe.edu.upc.spring.model.Compra;
-import pe.edu.upc.spring.model.DetalleDispositivoPlan;
-import pe.edu.upc.spring.model.Dispositivo;
+import pe.edu.upc.spring.model.DetalleServicioXPlan;
 import pe.edu.upc.spring.model.Pago;
 import pe.edu.upc.spring.model.Plan;
 import pe.edu.upc.spring.service.ICompraService;
@@ -28,10 +27,10 @@ import pe.edu.upc.spring.service.IPagoService;
 public class PagoController {
 	
 	@Autowired
-	private IPagoService pService;
+	private IPagoService pgService;
 	
 	@Autowired
-	private ICompraService sService;
+	private ICompraService cService;
 	
 	@RequestMapping("/bienvenido")
 	public String irPaginaBienvenida() {
@@ -40,67 +39,45 @@ public class PagoController {
 	
 	@RequestMapping("/")
 	public String irPaginaListadoPagos(Map<String, Object> model) {
-		model.put("listaPagos", pService.listar());
+		model.put("listaPagos", pgService.listar());
 		return "listPago";
 	}
 	
 	@RequestMapping("/irRegistrar")
 	public String irPaginaRegistrar(Model model) {
-		model.addAttribute("listaCompras", sService.listar());
+		model.addAttribute("listaCompras", cService.listar());
 		
-		model.addAttribute("pago", new DetalleDispositivoPlan());
+		model.addAttribute("pago", new Pago());
 		model.addAttribute("compra", new Compra());
 		
-		return "compra";
+		return "pago";
 	}
+	
+
 	
 	@RequestMapping("/registrar")
-	public String registrar(@ModelAttribute Pago objPago, BindingResult binRes, Model model) throws ParseException {
-		if (binRes.hasErrors())
-			return "compra";
-		else {
-			boolean flag = pService.insertar(objPago);
-			if (flag)
-				return "redirect:/pago/listar";
+	public String registrar (@ModelAttribute Pago objPago,BindingResult binRes,Model model)
+	throws ParseException
+		{
+			if(binRes.hasErrors()) {
+			model.addAttribute("listaCompras", cService.listar());
+			return("detalleServicioXPlan");
+			}
 			else {
-				model.addAttribute("mensaje", "Ocurrio un error");
-				return "redirect:/pago/irRegistrar";
+				boolean flag = pgService.insertar(objPago);
+				if (flag)
+					return "redirect:/pago/bienvenido";
+				else {
+					model.addAttribute("mensaje", "Ocurrio un error");
+					return "redirect:/pago/irRegistrar";
+				}
 			}
 		}
-	}
 	
-	@RequestMapping("/modificar/{id}")
-	public String modificar(@PathVariable int id, Model model, RedirectAttributes objRedir) throws ParseException {
-		Optional<Pago> objPago = pService.listarId(id);
-		if(objPago == null) {
-			objRedir.addFlashAttribute("mensaje", "Ocurrio un error");
-			return "redirect:/pago/listar";
-		}
-		else {
-			model.addAttribute("pago", objPago);
-			return "pago";
-		}
-	}
-	
-	@RequestMapping("/eliminar")
-	public String eliminar(Map<String, Object> model, @RequestParam(value="id") Integer id) {
-		try {
-			if (id != null && id>0) {
-				pService.eliminar(id);
-				model.put("listaPagos", pService.listar());
-			}
-		}
-		catch (Exception ex) {
-			System.out.println(ex.getMessage());
-			model.put("mensaje", "Ocurrio un error");
-			model.put("listaPagos", pService.listar());
-		}
-		return "listPago";
-	}
 	
 	@RequestMapping("/listar")
 	public String listar(Map<String, Object> model) {
-		model.put("listaPagos", pService.listar());
+		model.put("listaPagos", pgService.listar());
 		return "listPago";
 	}
 	
