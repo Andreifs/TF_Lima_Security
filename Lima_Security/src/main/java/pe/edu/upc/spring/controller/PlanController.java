@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+
 import com.sun.el.parser.ParseException;
 
 
@@ -46,7 +47,7 @@ public class PlanController {
 	}
 	
 /*	@RequestMapping("/registrar")
-	public String registrar(@ModelAttribute  Plan objPlan, BindingResult binRes, Model model) throws ParseException {
+	public String registrar(@ModelAttribute Plan objPlan, BindingResult binRes, Model model) throws ParseException {
 	
 		if (binRes.hasErrors())
 			return "plan";
@@ -54,7 +55,8 @@ public class PlanController {
 			boolean flag;
 			int id =-1;
 			for(Plan p:pService.listar()){
-				if(p.getNombrePlan()==objPlan.getNombrePlan() )
+				String name=p.getNombrePlan();
+				if(name.() )
 				{
 					id=p.getIdPlan();
 				}
