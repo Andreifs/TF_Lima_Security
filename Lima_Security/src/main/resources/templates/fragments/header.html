@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.orge/extras/spring-security">
 
 	<head>
 		<meta charset="UTF-8"></meta>
@@ -46,8 +47,14 @@
 							<li><a th:href="@{/compra/listar2}">Compras</a></li>
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
-							<li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      						<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+							<li sec:authorize="!isAuthenticated()">
+							<a href="#"><span class="glyphicon glyphicon-user"></span>Login</a>
+							</li>
+      						<li>
+      						
+      						<a class = "glyphicon glyphicon-user" th:href="@{/logout}">Logout</a>
+      						
+      						</li>
 						</ul>
 						 
 					</div>
