@@ -37,11 +37,11 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 			.antMatchers("/dispositivo/**").access("hasRole('ROLE_ADMIN')")
 			.antMatchers("/pago/**").access("hasRole('ROLE_USER')")
 			.antMatchers("/listPago").access("hasRole('ROLE_ADMIN')")
+			.antMatchers("/listCompra").access("hasRole('ROLE_ADMIN')")
 			.antMatchers("/plan/**").access("hasRole('ROLE_ADMIN')")
 			.antMatchers("/servicio/**").access("hasRole('ROLE_ADMIN')")
 			.antMatchers("/compra/**").access("hasRole('ROLE_USER')")
-			.antMatchers("/welcome/**").access("hasRole('ROLE_ADMIN')or hasRole('ROLE_USER')").and()
-			
+			.antMatchers("/welcome/**").access("hasRole('ROLE_ADMIN')or hasRole('ROLE_USER')").and()			
 			.formLogin().successHandler(successHandler).loginPage("/login").loginProcessingUrl("/login").defaultSuccessUrl("/welcome/bienvenido")
 			.permitAll().and().logout().logoutSuccessUrl("/login").permitAll().and().exceptionHandling().accessDeniedPage("/error_403");
 			
@@ -59,7 +59,5 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 		build.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);
 	}
 	
-	public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/welcome/**");
-    }
+	
 }
