@@ -60,33 +60,22 @@ public class DetalleDispositivoPlanController {
 	@RequestMapping("/registrar")
 	public String registrar (@ModelAttribute DetalleDispositivoPlan objDetalleDispositivoPlan,BindingResult binRes,Model model)
 	throws ParseException
-		{
-			if(binRes.hasErrors()) {
-			model.addAttribute("listaDispositivos", dService.listar());
-			model.addAttribute("listaPlanes", pService.listar());
-			return("detalleDispositivoPlan");
-			}
+	{
+		if(binRes.hasErrors()) {
+		model.addAttribute("listaDispositivoss", dService.listar());
+		model.addAttribute("listaPlanes", pService.listar());
+		return("detalleDispositivoPlan");
+		}
+		else {
+			boolean flag = dpService.insertar(objDetalleDispositivoPlan);
+			if (flag)
+				return "redirect:/detalleDispositivoPlan/listar";
 			else {
-				boolean flag;
-
-				if(dpService.buscarDispositivo(objDetalleDispositivoPlan.getDispositivo().getIdDispositivo()).isEmpty() &&
-						dpService.buscarPlan(objDetalleDispositivoPlan.getPlan().getIdPlan()).isEmpty())
-				{
-					flag=dpService.insertar(objDetalleDispositivoPlan);
-				}
-				else {
-					model.addAttribute("mensaje", "Ya existe Plan con este Dispositivo ");
-					return "redirect:/detalleDispositivoPlan/irRegistrar";
-				}
-		
-				if (flag)
-					return "redirect:/detalleDispositivoPlan/listar";
-				else {
-					model.addAttribute("mensaje", "Ocurrio un error");
-					return "redirect:/detalleDispositivoPlan/irRegistrar";
-				}
+				model.addAttribute("mensaje", "Ocurrio un error");
+				return "redirect:/detalleDispositivoPlan/irRegistrar";
 			}
 		}
+	}
 		
 	@RequestMapping("/modificar/{id}")
 	public String modificar1(@PathVariable int id, Model model, RedirectAttributes objRedir) 
