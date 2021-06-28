@@ -35,8 +35,10 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 			
 			.antMatchers("/plan/bienvenido/**").permitAll()
 			.antMatchers("/compra/listar2/**").access("hasRole('ROLE_ADMIN')")
-			.antMatchers("/detalleDispositivoPlan/**").access("hasRole('ROLE_ADMIN')or hasRole('ROLE_USER')")
-			.antMatchers("/detalleServicioXPlan/**").access("hasRole('ROLE_ADMIN')or hasRole('ROLE_USER')")
+			.antMatchers("/detalleDispositivoPlan/listar2/**").access("hasRole('ROLE_USER')")
+			.antMatchers("/detalleServicioXPlan/listar2/**").access("hasRole('ROLE_USER')")
+			.antMatchers("/detalleDispositivoPlan/**").access("hasRole('ROLE_ADMIN')")
+			.antMatchers("/detalleServicioXPlan/**").access("hasRole('ROLE_ADMIN')")
 			.antMatchers("/dispositivo/**").access("hasRole('ROLE_ADMIN')")
 			.antMatchers("/pago/listar/**").not().access("hasRole('ROLE_USER')")
 			.antMatchers("/pago/**").access("hasRole('ROLE_ADMIN')or hasRole('ROLE_USER')")
@@ -47,7 +49,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 			.formLogin().successHandler(successHandler).loginPage("/login").loginProcessingUrl("/login").defaultSuccessUrl("/plan/bienvenido")
 			.permitAll().and().logout().logoutSuccessUrl("/login").permitAll().and().exceptionHandling().accessDeniedPage("/error_403");
 			
-			/*.antMatchers("/welcome/**").access("hasRole('ROLE_ADMIN')or hasRole('ROLE_USER')")*/
+			
 		}
 		catch (Exception ex) {
 			System.out.println(ex.getMessage());

@@ -48,13 +48,15 @@ xmlns:sec="http://www.thymeleaf.orge/extras/spring-security">
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
 							<li sec:authorize="!isAuthenticated()">
-							<a  class="glyphicon glyphicon-user" th:href="@{/login}">Login</a>
+							<form th:action="@{/login}" method="post">
+							<button style="margin-top: 10px; margin-right: 10px" class="btn-primary">Login</button>
+							</form>
 							</li>
       						<li>
       						
       						
       						<form th:action="@{/logout}" method="post">
-                                  <button class="dropdown-item" type="submit">LogOut</button>
+                                  <button style="margin-top: 10px" class="dropdown-item btn-danger" type="submit">LogOut</button>
                               </form>
       						
       						</li>
