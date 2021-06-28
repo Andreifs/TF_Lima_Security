@@ -71,21 +71,7 @@ public class PlanController {
 		}
 	}
 	
-	/*@RequestMapping("/registrar")
-	public String registrar(@ModelAttribute Plan objPlan, BindingResult binRes, Model model) throws ParseException {
-		if (binRes.hasErrors())
-			return "plan";
-		else {
-			boolean flag = pService.insertar(objPlan);
-			if (flag)
-				return "redirect:/plan/listar";
-			else {
-				model.addAttribute("mensaje", "Ocurrio un error");
-				return "redirect:/plan/irRegistrar";
-			}
-		}
-	}*/
-	
+
 	@RequestMapping("/modificar/{id}")
 	public String modificar(@PathVariable int id, Model model, RedirectAttributes objRedir) throws ParseException {
 		Optional<Plan> objPlan = pService.listarId(id);
