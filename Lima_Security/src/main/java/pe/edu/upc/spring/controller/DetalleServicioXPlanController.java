@@ -118,6 +118,12 @@ public class DetalleServicioXPlanController {
 		return "listDetalleServicio";
 	}
 	
+	@RequestMapping("/listar2")
+	public String listarUser(Map<String, Object> model) {
+		model.put("listaDetalleServicioXPlanes", dService.listar());
+		return "listDetalleServicioClient";
+	}
+	
 			
 	
 }

@@ -118,6 +118,11 @@ public class DetalleDispositivoPlanController {
 		return "listDetalleDispositivo";
 	}
 	
+	@RequestMapping("/listar2")
+	public String listarClient(Map<String, Object> model) {
+		model.put("listaDetalleDispositivoPlanes", dpService.listar());
+		return "listDetalleDispositivoClient";
+	}
 			
 	
 }

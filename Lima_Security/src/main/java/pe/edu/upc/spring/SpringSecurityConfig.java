@@ -32,18 +32,17 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception{
 		try {
 			http.authorizeRequests()
+			
+			.antMatchers("/plan/bienvenido/**").permitAll()
+			.antMatchers("/compra/listar2/**").access("hasRole('ROLE_ADMIN')")
 			.antMatchers("/detalleDispositivoPlan/**").access("hasRole('ROLE_ADMIN')or hasRole('ROLE_USER')")
 			.antMatchers("/detalleServicioXPlan/**").access("hasRole('ROLE_ADMIN')or hasRole('ROLE_USER')")
 			.antMatchers("/dispositivo/**").access("hasRole('ROLE_ADMIN')")
 			.antMatchers("/pago/listar/**").not().access("hasRole('ROLE_USER')")
 			.antMatchers("/pago/**").access("hasRole('ROLE_ADMIN')or hasRole('ROLE_USER')")
-			
-			.antMatchers("/listCompra/**").access("hasRole('ROLE_ADMIN')")
 			.antMatchers("/plan/**").access("hasRole('ROLE_ADMIN')")
 			.antMatchers("/servicio/**").access("hasRole('ROLE_ADMIN')")
 			.antMatchers("/compra/**").access("hasRole('ROLE_USER')")
-			.antMatchers("/compra/listar/**").not().access("hasRole('ROLE_ADMIN')")
-
 			.antMatchers("/welcome/**").permitAll() .and()			
 			.formLogin().successHandler(successHandler).loginPage("/login").loginProcessingUrl("/login").defaultSuccessUrl("/plan/bienvenido")
 			.permitAll().and().logout().logoutSuccessUrl("/login").permitAll().and().exceptionHandling().accessDeniedPage("/error_403");
@@ -61,8 +60,5 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 	public void configureGlobal(AuthenticationManagerBuilder build) throws Exception{
 		build.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);
 	}
-	public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/welcome/**");
-    }
 	
 }
