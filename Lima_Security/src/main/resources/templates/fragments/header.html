@@ -52,7 +52,10 @@ xmlns:sec="http://www.thymeleaf.orge/extras/spring-security">
 							</li>
       						<li>
       						
-      						<a class = "glyphicon glyphicon-user" th:href="@{/logout}">Logout</a>
+      						
+      						<form th:action="@{/logout}" method="post">
+                                  <button class="dropdown-item" type="submit">LogOut</button>
+                              </form>
       						
       						</li>
 						</ul>
