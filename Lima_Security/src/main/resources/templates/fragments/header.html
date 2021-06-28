@@ -48,7 +48,7 @@ xmlns:sec="http://www.thymeleaf.orge/extras/spring-security">
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
 							<li sec:authorize="!isAuthenticated()">
-							<a href="#"><span class="glyphicon glyphicon-user"></span>Login</a>
+							<a  class="glyphicon glyphicon-user" th:href="@{/login}">Login</a>
 							</li>
       						<li>
       						
