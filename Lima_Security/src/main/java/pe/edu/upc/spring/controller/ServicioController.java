@@ -47,7 +47,16 @@ public class ServicioController {
 		if (binRes.hasErrors())
 			return "servicio";
 		else {
-			boolean flag = sService.insertar(objServ);
+			boolean flag;
+			if(sService.buscarNombre(objServ.getNombreServicio()).isEmpty())
+			{
+				flag=sService.insertar(objServ);
+			}
+			else {
+				model.addAttribute("mensaje", "Este Servicio ya existe");
+				return "redirect:/servicio/irRegistrar";
+			}
+	
 			if (flag)
 				return "redirect:/servicio/listar";
 			else {

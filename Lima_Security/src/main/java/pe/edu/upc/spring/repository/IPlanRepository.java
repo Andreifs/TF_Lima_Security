@@ -14,6 +14,9 @@ public interface IPlanRepository extends JpaRepository<Plan, Integer>{
 	@Query("from Plan p where p.nombrePlan like %:nombrePlan%")
 	List<Plan> buscarNombre(@Param("nombrePlan") String nombrePlan);
 	
+	@Query("from Plan p where p.descripcionPlan like %:descripcionPlan%")
+	List<Plan> buscarDescripcion(@Param("descripcionPlan") String descripcionPlan);
+	
 	@Query("select p from Plan p where p.idPlan like %:idPlan%")
 	List<Plan> buscarId(int idPlan);	
 }

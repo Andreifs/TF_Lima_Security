@@ -45,9 +45,18 @@ public class DispositivoController {
 	@RequestMapping("/registrar")
 	public String registrar(@ModelAttribute Dispositivo objDisp, BindingResult binRes, Model model) throws ParseException {
 		if (binRes.hasErrors())
-			return "plan";
+			return "dispositivo";
 		else {
-			boolean flag = dService.insertar(objDisp);
+			boolean flag;
+			if(dService.buscarModelo(objDisp.getModeloDisp()).isEmpty())
+			{
+				flag=dService.insertar(objDisp);
+			}
+			else {
+				model.addAttribute("mensaje", "Este modelo ya existe");
+				return "redirect:/dispositivo/irRegistrar";
+			}
+	
 			if (flag)
 				return "redirect:/dispositivo/listar";
 			else {

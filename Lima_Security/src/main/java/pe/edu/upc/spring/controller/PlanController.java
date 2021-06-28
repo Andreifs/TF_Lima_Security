@@ -46,38 +46,32 @@ public class PlanController {
 		return "plan";
 	}
 	
-/*	@RequestMapping("/registrar")
+	@RequestMapping("/registrar")
 	public String registrar(@ModelAttribute Plan objPlan, BindingResult binRes, Model model) throws ParseException {
-	
 		if (binRes.hasErrors())
 			return "plan";
 		else {
 			boolean flag;
-			int id =-1;
-			for(Plan p:pService.listar()){
-				String name=p.getNombrePlan();
-				if(name.() )
-				{
-					id=p.getIdPlan();
-				}
-			}
-			if(id!=-1) {
-				model.addAttribute("mensaje","Este Plan ya esta registrado");
-				return "redirect:/plan/irRegistrar";
-			}
-			else {
+			if(pService.buscarNombre(objPlan.getNombrePlan()).isEmpty() ||
+					pService.buscarDescripcion(objPlan.getDescripcionPlan()).isEmpty())
+			{
 				flag=pService.insertar(objPlan);
 			}
-			if (flag && id==-1)
+			else {
+				model.addAttribute("mensaje", "Este Plan ya existe");
+				return "redirect:/plan/irRegistrar";
+			}
+	
+			if (flag)
 				return "redirect:/plan/listar";
 			else {
 				model.addAttribute("mensaje", "Ocurrio un error");
 				return "redirect:/plan/irRegistrar";
 			}
 		}
-	}*/
+	}
 	
-	@RequestMapping("/registrar")
+	/*@RequestMapping("/registrar")
 	public String registrar(@ModelAttribute Plan objPlan, BindingResult binRes, Model model) throws ParseException {
 		if (binRes.hasErrors())
 			return "plan";
@@ -90,7 +84,7 @@ public class PlanController {
 				return "redirect:/plan/irRegistrar";
 			}
 		}
-	}
+	}*/
 	
 	@RequestMapping("/modificar/{id}")
 	public String modificar(@PathVariable int id, Model model, RedirectAttributes objRedir) throws ParseException {

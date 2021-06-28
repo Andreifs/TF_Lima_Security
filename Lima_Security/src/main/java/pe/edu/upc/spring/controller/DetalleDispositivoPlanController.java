@@ -67,7 +67,18 @@ public class DetalleDispositivoPlanController {
 			return("detalleDispositivoPlan");
 			}
 			else {
-				boolean flag = dpService.insertar(objDetalleDispositivoPlan);
+				boolean flag;
+
+				if(dpService.buscarDispositivo(objDetalleDispositivoPlan.getDispositivo().getIdDispositivo()).isEmpty() &&
+						dpService.buscarPlan(objDetalleDispositivoPlan.getPlan().getIdPlan()).isEmpty())
+				{
+					flag=dpService.insertar(objDetalleDispositivoPlan);
+				}
+				else {
+					model.addAttribute("mensaje", "Ya existe Plan con este Dispositivo ");
+					return "redirect:/detalleDispositivoPlan/irRegistrar";
+				}
+		
 				if (flag)
 					return "redirect:/detalleDispositivoPlan/listar";
 				else {

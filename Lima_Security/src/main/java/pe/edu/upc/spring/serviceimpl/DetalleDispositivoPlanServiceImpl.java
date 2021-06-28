@@ -59,14 +59,14 @@ public class DetalleDispositivoPlanServiceImpl implements IDetalleDispositivoPla
 
 	@Override
 	@Transactional
-	public List<DetalleDispositivoPlan> buscarPlan(String nombrePlan) {
-		return dDetalleDispositivoPlan.buscaPlan(nombrePlan);
+	public List<DetalleDispositivoPlan> buscarPlan(int idPlan) {
+		return dDetalleDispositivoPlan.buscaPlan(idPlan);
 	}
 
 	@Override
 	@Transactional
-	public List<DetalleDispositivoPlan> buscarDispositivo(String modeloDisp) {
-		return dDetalleDispositivoPlan.buscarDispositivo(modeloDisp);
+	public List<DetalleDispositivoPlan> buscarDispositivo(int idDispositivo) {
+		return dDetalleDispositivoPlan.buscarDispositivo(idDispositivo);
 	}
 
 	@Override

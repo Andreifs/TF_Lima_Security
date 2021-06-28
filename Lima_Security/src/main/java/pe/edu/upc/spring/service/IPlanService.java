@@ -12,5 +12,6 @@ public interface IPlanService {
 	public Optional<Plan> listarId(int idPlan);
 	List<Plan> listar();
 	List<Plan> buscarNombre(String nombrePlan);
+	List<Plan> buscarDescripcion(String descripcionPlan);
 	List<Plan> buscarId(int idPlan);
 }
